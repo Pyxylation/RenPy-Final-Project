@@ -51,12 +51,8 @@ label start:
 
     h "Now on to the next problem..."
     h "how much money should I give Strongbad?"
-<<<<<<< HEAD
     $ num = 0
-=======
-    $num = 0 
-    renpy.
->>>>>>> a1fc2a6f5f024bdbe833883f86dc612e22104d9e
+
 
 
 
