@@ -3,8 +3,8 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
-define h = Character("Homestar")
+define e = Character("Adam's")
+define h = Character("The Man")
 
 
 
@@ -51,8 +51,7 @@ label start:
 
     h "Now on to the next problem..."
     h "how much money should I give Strongbad?"
-    $ num = 0 
-    renpy.
+    $ num = 0
 
 
 

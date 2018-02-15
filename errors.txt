@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 49: expected 'simple_expression' not found.
-    xcenter;
-           ^
+File "game/script.rpy", line 55: expected statement.
+    renpy.Adam
+              ^
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Thu Feb 08 15:22:14 2018
+Thu Feb 15 18:34:58 2018
