@@ -1,42 +1,24 @@
-Thu Feb 08 17:45:06 2018
+Thu Feb 15 18:28:38 2018
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
  
 
 Bootstrap to the start of init.init took 0.08s
-Early init took 0.01s
-Loader init took 0.03s
-Loading error handling took 0.05s
-Loading script took 0.79s
-Loading save slot metadata. took 0.06s
+Early init took 0.00s
+Loader init took 0.01s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.38s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\dmarc\\AppData\\Roaming/RenPy/backups\\RenPy-Test':
-Dump and make backups. took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.01s
+
+File "game/script.rpy", line 55: expecting name after dot.
+    renpy.
+          ^
 DPI scale factor: 2.500000
-Creating interface object took 0.04s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.01s
-Analyze screens took 0.01s
-Save screen analysis took 0.12s
-Prepare screens took 0.08s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.08s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.03s
+Interface start took 0.20s
 Couldn't import angle renderer:
 Traceback (most recent call last):
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\display\core.py", line 1884, in make_draw
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\display\core.py", line 1884, in make_draw
     __import__(mod)
 ImportError: DLL load failed: The specified module could not be found.
 Unknown renderer: angle
@@ -280,64 +262,4 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Total time until interface ready: 3.5560002327s
-- Target is 5 frames in 0.333333333333 seconds.
-- Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.017667 seconds.
-- Frame drawn at 0.218667 seconds.
-- Frame drawn at 0.312667 seconds.
-- Frame drawn at 0.538666 seconds.
-- 0.538666 seconds to render 5 frames.
-- Frame drawn at 0.685667 seconds.
-- 0.668000 seconds to render 5 frames.
-- Frame drawn at 0.705667 seconds.
-- 0.487000 seconds to render 5 frames.
-- Frame drawn at 0.720667 seconds.
-- 0.408000 seconds to render 5 frames.
-- Frame drawn at 0.741667 seconds.
-- 0.203000 seconds to render 5 frames.
-
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1920, 1080) physical=(3840, 2004) drawable=(3840, 2004)
-Cleaning stores took 0.00s
-Init translation took 0.14s
-Build styles took 0.01s
-Load screen analysis took 0.02s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1920, 1080) physical=(3840, 2160) drawable=(3840, 2160)
-
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1920, 1080) physical=(3840, 2160) drawable=(3840, 2160)
-
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1920, 1080) physical=(3840, 2160) drawable=(3840, 2160)
-
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1920, 1080) physical=(3840, 2104) drawable=(3840, 2104)
-
-primary display bounds: (0, 0, 3840, 2160)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1920, 1080) physical=(3840, 2004) drawable=(3840, 2004)
-Cleaning stores took 0.00s
-Init translation took 0.16s
-Build styles took 0.01s
-Load screen analysis took 0.05s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-The window was minimized.
+Total time until interface ready: 1.93799996376s
