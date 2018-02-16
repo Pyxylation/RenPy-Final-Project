@@ -1,48 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 20, in script
-    "Deep in the forest, there are many things learking!"
-  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
-    _window_show()
-  File "renpy/common/000window.rpy", line 60, in _window_show
-    renpy.with_statement(trans)
-IOError: Couldn't find file 'spookymusic.mp3'.
+  File "renpy/common/00start.rpy", line 198, in script call
+    call _gl_test
+  File "renpy/common/00gltest.rpy", line 457, in script
+    python hide:
+  File "renpy/common/00gltest.rpy", line 462, in <module>
+    os.startfile(__dxwebsetup)
+WindowsError: [Error 1223] The operation was canceled by the user: u'D:\\OneDrive - Wright State University\\School Documents\\College\\4) Senior Year\\2nd Semester\\Capstone\\RenPy\\renpy-6.99.14.1-sdk\\lib\\windows-i686\\dxwebsetup.exe'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 20, in script
-    "Deep in the forest, there are many things learking!"
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\ast.py", line 609, in execute
-    statement_name("say")
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\ast.py", line 43, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
-    _window_show()
-  File "renpy/common/000window.rpy", line 60, in _window_show
-    renpy.with_statement(trans)
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\exports.py", line 1409, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\display\core.py", line 2190, in do_with
-    clear=clear)
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\display\core.py", line 2624, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\display\core.py", line 3284, in interact_core
-    renpy.audio.audio.periodic()
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\audio\audio.py", line 976, in periodic_thread_main
-    periodic_pass()
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\audio\audio.py", line 920, in periodic_pass
-    c.periodic()
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\audio\audio.py", line 409, in periodic
-    topf = load(self.file_prefix + filename + self.file_suffix)
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\audio\audio.py", line 69, in load
-    rv = renpy.loader.load(fn)
-  File "C:\Users\dmarc\Downloads\renpy-6.99.14.1-sdk\renpy\loader.py", line 555, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'spookymusic.mp3'.
+  File "renpy/common/00start.rpy", line 198, in script call
+    call _gl_test
+  File "renpy/common/00gltest.rpy", line 457, in script
+    python hide:
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 848, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1812, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "renpy/common/00gltest.rpy", line 462, in <module>
+    os.startfile(__dxwebsetup)
+WindowsError: [Error 1223] The operation was canceled by the user: u'D:\\OneDrive - Wright State University\\School Documents\\College\\4) Senior Year\\2nd Semester\\Capstone\\RenPy\\renpy-6.99.14.1-sdk\\lib\\windows-i686\\dxwebsetup.exe'
 
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
 RenPy-Test 1.0
-Thu Feb 08 14:43:09 2018
+Thu Feb 15 18:48:54 2018
