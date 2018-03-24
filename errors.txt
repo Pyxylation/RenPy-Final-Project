@@ -2,18 +2,9 @@
 errors listed below, and try again.
 
 
-<<<<<<< HEAD
-File "game/script.rpy", line 55: expected statement.
-    renpy.Adam
-              ^
+The label start is defined twice, at
+  File "game/1script.rpyc", line 12 and
+  File "game/script.rpyc", line 12.
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Thu Feb 15 18:34:58 2018
-=======
-File "game/script.rpy", line 55: expecting name after dot.
-    renpy.
-          ^
-
-Ren'Py Version: Ren'Py 6.99.14.1.3218
-Thu Feb 15 18:28:38 2018
->>>>>>> a1fc2a6f5f024bdbe833883f86dc612e22104d9e
+Fri Mar 23 19:39:51 2018

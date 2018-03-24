@@ -53,8 +53,4 @@ label start:
     h "how much money should I give Strongbad?"
     $ num = 0
 
-
-
-
-    # This ends the game.
-    return
+jump evicted
