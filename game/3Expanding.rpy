@@ -9,5 +9,5 @@
 label expanding:
 
 
-    # This ends the game.
-jump investing
+    
+jump passing

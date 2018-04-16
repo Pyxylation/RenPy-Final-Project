@@ -6,8 +6,8 @@
 
 
 # The game starts here.
-label investing:
+label passing:
 
 
-    # This ends the game.
-jump passing
+
+jump theft

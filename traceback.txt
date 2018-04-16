@@ -1,30 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 198, in script call
-    call _gl_test
-  File "renpy/common/00gltest.rpy", line 457, in script
-    python hide:
-  File "renpy/common/00gltest.rpy", line 462, in <module>
-    os.startfile(__dxwebsetup)
-WindowsError: [Error 1223] The operation was canceled by the user: u'D:\\OneDrive - Wright State University\\School Documents\\College\\4) Senior Year\\2nd Semester\\Capstone\\RenPy\\renpy-6.99.14.1-sdk\\lib\\windows-i686\\dxwebsetup.exe'
+  File "game/2evicted.rpy", line 57, in script
+    $difference = stock - original
+  File "game/2evicted.rpy", line 57, in <module>
+    $difference = stock - original
+NameError: name 'original' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 198, in script call
-    call _gl_test
-  File "renpy/common/00gltest.rpy", line 457, in script
-    python hide:
+  File "game/2evicted.rpy", line 57, in script
+    $difference = stock - original
   File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 848, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1812, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "renpy/common/00gltest.rpy", line 462, in <module>
-    os.startfile(__dxwebsetup)
-WindowsError: [Error 1223] The operation was canceled by the user: u'D:\\OneDrive - Wright State University\\School Documents\\College\\4) Senior Year\\2nd Semester\\Capstone\\RenPy\\renpy-6.99.14.1-sdk\\lib\\windows-i686\\dxwebsetup.exe'
+  File "game/2evicted.rpy", line 57, in <module>
+    $difference = stock - original
+NameError: name 'original' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
-RenPy-Test 1.0
-Thu Feb 15 18:48:54 2018
+Finance Game 1.0
+Mon Apr 16 01:37:48 2018

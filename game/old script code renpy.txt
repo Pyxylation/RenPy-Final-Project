@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -11,17 +11,20 @@ define h = Character("The Man")
 # The game starts here.
 label start:
 
+
+
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
     # file formats need to be either .png or .jpg, dont use .gif
-    scene black
+    scene bg house
+    "Welcome to (Insert Finance Simulation Game Name Here)"
+    "This game will be a guide to helping you make financial decisions throughout your life"
+    "There are two goals of the Game:
+        \nFirst you need to collect 1 Million dollars for retirement
+        \nSecond: You need to amass Life Points (LP). Which show how much life experince you got"
 
-    play music "spookymusic.mp3"  #Add in music, the MP3 file takes a few seconds to fade in, but you can fade with RenPy
-    "Deep in the forest, there are many things learking!"
-    "Some are unholy, others are demoni, and yet others are....."
-
-    play music "bighit.mp3"
+    #play music "spookymusic.mp3"  #Add in music, the MP3 file takes a few seconds to fade in, but you can fade with RenP]]
     scene bg bigfield
 
     # This shows a character sprite. A placeholder is used, but you can
@@ -52,5 +55,3 @@ label start:
     h "Now on to the next problem..."
     h "how much money should I give Strongbad?"
     $ num = 0
-
-jump evicted

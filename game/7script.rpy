@@ -2,12 +2,3 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-
-
-
-# The game starts here.
-label dependent:
-
-
-    # This ends the game.
-    return

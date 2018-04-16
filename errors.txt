@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-The label start is defined twice, at
-  File "game/1script.rpyc", line 12 and
-  File "game/script.rpyc", line 12.
+File "game/2evicted.rpy", line 57: expected python_expression
+    elif:
+        ^
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Fri Mar 23 19:39:51 2018
+Mon Apr 16 01:29:49 2018

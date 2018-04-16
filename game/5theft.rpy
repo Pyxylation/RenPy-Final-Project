@@ -9,5 +9,5 @@
 label theft:
 
 
-    # This ends the game.
+
 jump dependent

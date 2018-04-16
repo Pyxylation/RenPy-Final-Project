@@ -6,8 +6,8 @@
 
 
 # The game starts here.
-label passing:
+label dependent:
 
 
     # This ends the game.
-jump theft
+    return
