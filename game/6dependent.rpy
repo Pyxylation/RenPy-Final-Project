@@ -111,11 +111,11 @@ label dependent:
             "Whitney quits her job and takes care of Nick's dad at their house, $1000":
                 $lifePoints += 100
                 $cashFlowStatement.addItem("outflows", "medication", "Nick's Dad Medication", 5500)
-                $cashFlowStatement.removeItem("salaryWhit")
+                $cashFlowStatement.changeItemValue("salaryWhit", 0) #$cashFlowStatement.removeItem("salaryWhit")
                 "Nick's dad is extatic that he can live and spend time with Nick and Whitney again!"
 
         #likelyhood that he loses money from identity being stolen
-        $stolenRand = 75 #renpy.random.randint(0, 100)
+        $stolenRand = renpy.random.randint(0, 100)
         if nickIsCrazy == False and identityStolen == True and stolenRand <= 75:
             $stolenMultiplied = stolenRand * 1000
             $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc")-stolenMultiplied)
