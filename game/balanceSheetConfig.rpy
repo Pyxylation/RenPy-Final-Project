@@ -9,6 +9,7 @@ label loadBalanceSheet:
     # Item Class params: parent category id, item id, title to display, value, if user can edit value True/False (default value of False not required)
     $balanceSheet.addItem("assets", "checkingAcc", "Checking Account", 500)
     $balanceSheet.addItem("assets", "savingsAcc", "Savings Account", 1000)
+    $balanceSheet.addItem("assets", "houseDownPay", "House Downpayment", 0)
 
     #Investments/Savings Category in Assets category
     $balanceSheet.addCategory("assets", "invest/Save", "Investments/Savings")
@@ -16,7 +17,7 @@ label loadBalanceSheet:
     $balanceSheet.addItem("invest/Save", "fedExStock", "FedEx Stock - 100 Shrs", 5000)
     $balanceSheet.addItem("invest/Save", "k&bStock", "K&B - 100 Shrs", 7200)
     $balanceSheet.addItem("invest/Save", "growthMutualFund", "Growth Mutual Fund", 13900)
-    $balanceSheet.addItem("invest/Save", "401k", "401K Retirement Plan", 1500)
+    $balanceSheet.addItem("invest/Save", "401K", "401K Retirement Plan", 1500)
 
     #Automobiles Category in Assets category
     $balanceSheet.addCategory("assets", "automobiles", "Automobiles")
@@ -46,19 +47,6 @@ label loadBalanceSheet:
     #item under Miscellaneous Loans
     $balanceSheet.addItem("misLoans", "autoLoan", "Auto Loan", 8500)
     $balanceSheet.addItem("misLoans", "furnitureLoan", "Furniture Loan", 2300)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     $balanceSheet.addItem("inflows", "investIncome", "Investment Income", 1635)
 

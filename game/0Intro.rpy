@@ -15,12 +15,24 @@ init python:
         return int(compInt((cashFlowStatement.getValue(person)), years, (float(renpy.random.randint(3, 5))/100)))
     #calculate new federal tax
     def fedTax():
-        cashFlowStatement.changeItemValue("fedTax", int((cashFlowStatement.getValue("salaryNick") + cashFlowStatement.getValue("salaryWhit") - cashFlowStatement.getValue("401k"))*.25))
+        cashFlowStatement.changeItemValue("fedTax", int((cashFlowStatement.getValue("salaryNick") + cashFlowStatement.getValue("salaryWhit") - cashFlowStatement.getValue("401K"))*.25))
         return
     #calculate FICA and add it to cashFlowStatement
     def ficaCalcAdd(): #interest needs to be in DECIMALS
         cashFlowStatement.changeItemValue("ficaTax", int(((salaryWhit + salaryNick)*.0765)))
         return
+    def stockMarket(years, stockName): #random stock price generator over X years!
+        i = 0
+        profits = 0
+        while i <= years:
+            stockValue = balanceSheet.getValue(stockName)
+            randNum = (float(renpy.random.randint(-3, 8))/100)
+            newValue = int(stockValue*(1+randNum))
+            balanceSheet.changeItemValue(stockName, newValue)
+            profits += (stockValue*(randNum))
+            i += 1
+        return profits
+
 
 
 

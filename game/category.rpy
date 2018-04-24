@@ -8,7 +8,7 @@ init -2 python:
 
     class Category(object):
         """Represents a grouping of items and subcategories"""
-        
+
         def __init__(self, catId, title, negative=False):
             self.catId = catId
             self.itemId = catId
@@ -20,7 +20,7 @@ init -2 python:
             if self.catId == parentId:
                 if isinstance(self, Category):
                     self.addSubItem(itemId, title, value, userEdit)
-                    return True        
+                    return True
             for item in self.catList:
                 if item.itemId == parentId:
                     if isinstance(item, Category):
@@ -28,10 +28,10 @@ init -2 python:
                 elif isinstance(item, Category):
                     item.addItem(parentId, itemId, title, value, userEdit)
             return False
-             
+
         def addSubItem(self, itemId, title, value, userEdit=False):
             self.catList.append(Item(itemId, title, value, userEdit))
-            
+
         def addCategory(self, parentId, catId, title, negative=False):
             if self.catId == parentId:
                     if isinstance(self, Category):
@@ -43,10 +43,10 @@ init -2 python:
                 elif isinstance(item, Category):
                     item.addCategory(parentId, catId, title, negative)
             return False
-        
+
         def addSubCategory(self, catId, title, negative):
             self.catList.append(Category(catId, title, negative))
-        
+
         def removeItem(self, catId):
             for index, item in enumerate(self.catList):
                 if item.itemId == catId:
@@ -54,9 +54,9 @@ init -2 python:
                     return True
                 elif isinstance(item, Category):
                     item.removeItem(catId)
-                    
+
             return False
-            
+
         def incItemValue(self, itemId, value):
             self.returnValue = 0
             for item in self.catList:
@@ -67,7 +67,7 @@ init -2 python:
                     self.returnValue = item.incItemValue(itemId, value)
                     if self.returnValue:
                         return self.returnValue
-            
+
         def decItemValue(self, itemId, value):
             self.returnValue = 0
             for item in self.catList:
@@ -79,7 +79,7 @@ init -2 python:
                     if self.returnValue:
                         return self.returnValue
             #return "Item " + itemId + " not found."
-            
+
         def changeItemValueOrig(self, itemId, value):
             for item in self.catList:
                 if item.itemId == itemId:
@@ -87,16 +87,16 @@ init -2 python:
                     return True
                 elif isinstance(item, Category):
                     item.changeItemValue(itemId, value)
-                    
+
             return False
-        
+
         def changeItemValue(self, itemId, value):
             self.item = self.findItem(itemId)
             if isinstance(self.item, Item):
                 self.item.value = value
                 return self.item.value
             return "Item " + itemId + " not found."
-        
+
         def getValueItem(self, catId):
             self.returnValue = 0
             for item in self.catList:
@@ -106,7 +106,7 @@ init -2 python:
                     self.returnValue = item.getValueItem(catId)
                     if self.returnValue:
                         return self.returnValue
-                    
+
         def findItem(self, itemId):
             self.returnValue = 0
             for item in self.catList:
@@ -116,7 +116,7 @@ init -2 python:
                     self.returnValue = item.findItem(itemId)
                     if self.returnValue:
                         return self.returnValue
-                                    
+
         def getValue(self, catId):
             self.returnValue = None
             if (self.catId == catId):
@@ -129,9 +129,9 @@ init -2 python:
                     return item.tallyValue(item.negative)
                 elif isinstance(item, Category):
                     self.returnValue = item.getValue(catId)
-                    if self.returnValue:
+                    if self.returnValue is not None:
                         return self.returnValue
-        
+
         def tallyValueOrig(self):
             self.itemTally = 0
             for item in self.catList:
@@ -140,7 +140,7 @@ init -2 python:
                 elif isinstance(item, Item):
                     self.itemTally += item.value
             return self.itemTally
-            
+
         def tallyValue(self, negative=False):
             self.itemTally = 0
             self.negative = negative
@@ -153,7 +153,7 @@ init -2 python:
                     else:
                         self.itemTally += item.value
             return self.itemTally
-              
+
         def printCategory(self, level=0):
             self.itemTally = 0
             self.level = level + 1
@@ -197,38 +197,38 @@ init -2 python:
                         self.itemTally += item.value
             displayList.append(displayItem(self.catId, "CategorySumary", self.title, self.level, self.talleyDisplay(self.itemTally)))
             return self.itemTally
-    
+
         def talleyDisplay(self,tally):
             if tally < 0:
                 return "(" + str(abs(tally)) + ")"
             else:
                 return str(tally)
-  
+
         def getDisplayList(self):
             """Generate a list of the Category structure for user display"""
             del displayList[:]
             self.genDisplayList2()
             return displayList
-            
+
     class displayItem(object):
         """display list item for the Category structure for user display"""
-        
+
         def __init__(self, itemId, kind, title, level, value, userEdit=False):
             self.itemId = itemId
             self.userEdit = userEdit
             self.kind = kind
             self.title = title
             self.level = level
-            self.value = value     
-            
+            self.value = value
+
     class Item(object):
         """Represents a single line item with a value"""
-        
+
         def __init__(self, itemId, title, value, userEdit=False):
             self.itemId = itemId
             self.title = title
             self.value = value
             self.userEdit = userEdit
-            
+
         def printItem(self, level=0):
             print(" "*level + " " + self.title + " " + str(self.value))

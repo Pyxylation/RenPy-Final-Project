@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Finance Game")
+define config.name = _("The Clintons:                     \nNo, Not the Famous Ones")
 
 #Developer mode
 define config.developer = True
@@ -26,7 +26,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "0.3"
+define config.version = "Beta 1.0"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -40,7 +40,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "FinanceSim"
+define build.name = "TheClintons"
 
 
 ## Sounds and music ############################################################
@@ -64,7 +64,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "pianoBar.mp3"
 
 
 ## Transitions #################################################################
@@ -151,7 +151,7 @@ define config.save_directory = "FinanceSim-1522890176"
 ## Icon ########################################################################
 ##
 ## The icon displayed on the taskbar or dock.
-
+## icon size: 32X32
 define config.window_icon = "gui/window_icon.png"
 
 

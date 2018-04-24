@@ -13,7 +13,7 @@ label loadCashflow:
     $cashFlowStatement.addCategory("outflows", "plannedSaving", "Planned Saving", True)
     $cashFlowStatement.addItem("plannedSaving", "intDiv", "Reinvested Int/Div", 1635)
     # This example shows using existing values to calculate the value. Nicks salary * 3% plush the $.50 match per dollar contributed
-    $cashFlowStatement.addItem("plannedSaving", "401k", "401K Salary Deferrals", 1775)
+    $cashFlowStatement.addItem("plannedSaving", "401K", "401K Salary Deferrals", 1170)
     #cashFlowStatement.addItem("plannedSaving", "401k", "401K Salary Deferrals", eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03'), True)
     $cashFlowStatement.addItem("plannedSaving", "houseDownPay", "House Downpayment Saving", 1800)
 
@@ -27,7 +27,7 @@ label loadCashflow:
     $cashFlowStatement.addItem("outflows", "autoLoan", "Auto Loan Payments", 5400)
     $cashFlowStatement.addItem("outflows", "autoIns", "Auto Insurance", 4950)
     $cashFlowStatement.addItem("outflows", "autoMaint", "Auto fuel/maintenance", 3600)
-    $cashFlowStatement.addItem("outflows", "ccPayments", "Credit Card Payments", 4500)
+    $cashFlowStatement.addItem("outflows", "ccPayments", "Credit Card Payments", 8000)
     $cashFlowStatement.addItem("outflows", "studentLoan", "Student Loan Payments", 3600)
     $cashFlowStatement.addItem("outflows", "furnitureLoan", "Furniture Loan Payment", 1952)
     $cashFlowStatement.addItem("outflows", "entertainment", "Vacation/entertainment", 1920)

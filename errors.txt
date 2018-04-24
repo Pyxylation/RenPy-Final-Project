@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/2evicted.rpy", line 57: expected python_expression
-    elif:
-        ^
+File "game/7retirement.rpy", line 94: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
+    "TOTAL MONEY AT THE END!!! $[money]"
+    ^
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Mon Apr 16 01:29:49 2018
+Tue Apr 24 13:13:57 2018

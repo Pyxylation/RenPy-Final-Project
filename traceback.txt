@@ -1,26 +1,25 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/2evicted.rpy", line 57, in script
-    $difference = stock - original
-  File "game/2evicted.rpy", line 57, in <module>
-    $difference = stock - original
-NameError: name 'original' is not defined
+  File "game/5theft.rpy", line 144, in script
+    if momDebt = True:
+SyntaxError: invalid syntax (game/5theft.rpy, line 144)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/2evicted.rpy", line 57, in script
-    $difference = stock - original
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 848, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1812, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/2evicted.rpy", line 57, in <module>
-    $difference = stock - original
-NameError: name 'original' is not defined
+  File "game/5theft.rpy", line 144, in script
+    if momDebt = True:
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 1702, in execute
+    if renpy.python.py_eval(condition):
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1841, in py_eval
+    code = py_compile(code, 'eval')
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 638, in py_compile
+    raise e
+SyntaxError: invalid syntax (game/5theft.rpy, line 144)
 
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
-Finance Game 1.0
-Mon Apr 16 01:37:48 2018
+The Clintons:                     
+No, Not the Famous Ones Alpha 0.9
+Mon Apr 23 12:07:46 2018
