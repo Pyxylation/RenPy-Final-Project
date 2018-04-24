@@ -91,9 +91,13 @@ label retirement:
 
     scene bg retirement
 
-    $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
-    $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("growthMutualFund") + balanceSheet.getValue("401K"))
+    if nickIsCrazy == True:
+        $money = balanceSheet.getValue("matressBank")
+    else:
+        $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
+        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("growthMutualFund") + balanceSheet.getValue("401K"))
     "TOTAL MONEY AT THE END!!! $[money]"
+
     #TODO Total everying with the total amount
     if nickIsCrazy == True:
         $money = balanceSheet.getValue("matressBank")
