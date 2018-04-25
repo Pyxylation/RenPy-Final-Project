@@ -102,20 +102,24 @@ label retirement:
     \n Life Points [lifePoints] & Money $[money]"
 
     #TODO Make thing with low LP, like depression. 155LP is lowest, 630 LP is highest, 620 w/both crazy
-
     if money >= 1000000:
 
         if nickIsCrazy == True:
             menu:
-                "You made it to retirement!
-                \nWhere would you like to live?"
+                "Nick made it to retirement!
+                \nWhere would you like Nick to live?"
                 "Beach":
                     "Congrats"
 
-                "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET ME AND CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR ME!!!" if nickIsCrazy:
+                "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET NICK! CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR HIM!!!" if nickIsCrazy:
                     "Shoot!"
         else:
+            "You made it to retirement!"
             "Congradualtions on your beach retirement"
+
+    elif nickIsCrazy == True and money < 1000000
+        "Nick went crazy and didn't make it to retirement... "
+
     else:
         "Sorry... You didn't make it to 1 million...
         \n You played ya'self kid..."
