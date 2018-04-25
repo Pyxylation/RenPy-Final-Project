@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/5theft.rpy", line 114: invalid syntax
-    roiRBD =
-    
+File "game/7retirement.rpy", line 96: else clause expects a non-empty block.
+    else:
+         ^
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Tue Apr 24 22:24:40 2018
+Tue Apr 24 22:36:27 2018

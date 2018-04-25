@@ -90,12 +90,6 @@ label retirement:
 
 
     scene bg retirement
-
-    if nickIsCrazy == True:
-        $money = balanceSheet.getValue("matressBank")
-    else:
-        $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
-        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("growthMutualFund") + balanceSheet.getValue("401K"))
     "TOTAL MONEY AT THE END!!! $[money]"
 
     #TODO Total everying with the total amount
@@ -103,29 +97,31 @@ label retirement:
         $money = balanceSheet.getValue("matressBank")
 
     else:
-        $money = balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") # + total of all investments
-        "Congradualtions!!! Its retirement time!!!"
-        "Lets see how money and life points you ended up with!
-        \n Life Points [lifePoints] - Money $[money]"
+        $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
+        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("growthMutualFund") + balanceSheet.getValue("401K"))
 
-        if money >= 1000000:
-            menu:
-                "You made it to retirement!
-                \nWhere would you like to live?"
-                "Beach":
-                    "Congrats"
-                "Relaxing Subburb":
-                    "Great"
+    "Congradualtions!!! Its retirement time!!!"
+    "Lets see how money and life points you ended up with!
+    \n Life Points [lifePoints] & Money $[money]"
 
-                "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET ME AND CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR ME!!!" if nickIsCrazy:
-                    "Shoot!"
+    if money >= 1000000:
+        menu:
+            "You made it to retirement!
+            \nWhere would you like to live?"
+            "Beach":
+                "Congrats"
+            "Relaxing Subburb":
+                "Great"
 
-        else:
-            "Sorry... You didn't make it to 1 million...
-            \n You played ya'self kid..."
+            "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET ME AND CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR ME!!!" if nickIsCrazy:
+                "Shoot!"
 
-        scene bg credits
-        "Thanks!"
+    else:
+        "Sorry... You didn't make it to 1 million...
+        \n You played ya'self kid..."
+
+    scene bg credits
+    "Thanks!"
 
 
 

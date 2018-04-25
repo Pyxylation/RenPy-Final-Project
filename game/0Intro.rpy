@@ -47,8 +47,8 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
     # file formats need to be either .png or .jpg, dont use .gif
-    scene bg house
-    "Welcome to (Insert Finance Simulation Game Name Here)"
+    scene bg introhouse
+    "Welcome to 'The Clintons: No, Not the Famous Ones!'"
     "This game will be a guide to helping you make financial decisions throughout your life"
     "There are two goals of the Game:
         \nFirst you need to collect 1 Million dollars for retirement
