@@ -117,7 +117,7 @@ label retirement:
             "You made it to retirement!"
             "Congradualtions on your beach retirement"
 
-    elif nickIsCrazy == True and money < 1000000
+    elif nickIsCrazy == True and money < 1000000:
         "Nick went crazy and didn't make it to retirement... "
 
     else:

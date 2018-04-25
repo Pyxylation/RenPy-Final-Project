@@ -2,10 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/2evicted.rpy", line 55: invalid syntax
-    cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 8, .01i)))
-                                                                                                       ^
-    
+File "game/7retirement.rpy", line 120: reached end of line when expecting ':'.
+    elif nickIsCrazy == True and money < 1000000
+                                                ^
+
+File "game/7retirement.rpy", line 123: expected statement.
+    else:
+        ^
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Wed Apr 25 02:56:06 2018
+Wed Apr 25 15:18:40 2018
