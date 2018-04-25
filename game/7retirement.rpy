@@ -16,8 +16,8 @@ label retirement:
         #display salary
         $salaryNick = cashFlowStatement.getValue('salaryNick')
         $salaryWhit = cashFlowStatement.getValue('salaryWhit')
-        "Nick is now 65 years old and earns $[salaryNick]
-        \nWhitney is now 64 years old and earns $[salaryWhit]"
+        "Nick is now 65 years old and earns {c}[salaryNick]{/c}
+        \nWhitney is now 64 years old and earns {c}[salaryWhit]{/c}"
 
         #new 401K calcualtion
         $cashFlowStatement.changeItemValue("401K", int(eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03')))
@@ -42,13 +42,13 @@ label retirement:
 
         #fedEx stock if then statement
         if fedEx > oFedEx:
-            "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-            \n Total value is $[fedEx]. Thats $[stockProfit] in earnings!"
+            "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+            \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
         elif fedEx == oFedEx:
-            "FedEx portfolio valued at [fedEx] at $[share] per share"
+            "FedEx portfolio valued at [fedEx] at {c}[share]{/c} per share"
         else:
-            "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-            \n Total value is $[fedEx]. Thats $[stockProfit] loss"
+            "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
+            \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} loss"
 
         #K&B
         $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
@@ -58,13 +58,13 @@ label retirement:
 
         #fedEx stock if then statement
         if kB > oKB:
-            "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-            \n Total value is $[kB]. Thats $[stockProfit] in earnings!"
+            "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+            \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
         elif kB == oKB:
-            "FedEx portfolio valued at [kB] at $[share] per share"
+            "FedEx portfolio valued at [kB] at {c}[share]{/c} per share"
         else:
-            "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-            \n Total value is $[kB]. Thats $[stockProfit] loss"
+            "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
+            \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} loss"
 
             $adjustedRandJobNum = 0
 
@@ -72,7 +72,7 @@ label retirement:
         #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
         $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*7)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
         $k401 = balanceSheet.getValue("401K")
-        "Current 401K Savings $[k401]."
+        "Current 401K Savings {c}[k401]{/c}."
         #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
         $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
 
@@ -81,7 +81,7 @@ label retirement:
         $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*5
         $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
         $savings = balanceSheet.getValue("savingsAcc")
-        "Nick now has $[savings] in his savings."
+        "Nick now has {c}[savings]{/c} in his savings."
 
     else:
         "Nick is crazy. He doesnt trust the system. So, he cant get paid."
@@ -99,7 +99,7 @@ label retirement:
 
     "Congradualtions!!! Its retirement time!!!"
     "Lets see how money and life points you ended up with!
-    \n Life Points [lifePoints] & Money $[money]"
+    \n Life Points [lifePoints] & Money {c}[money]{/c}"
 
     #TODO Make thing with low LP, like depression. 155LP is lowest, 630 LP is highest, 620 w/both crazy
     if money >= 1000000:
