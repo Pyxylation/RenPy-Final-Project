@@ -33,8 +33,23 @@ init python:
             i += 1
         return profits
 
+    #use: "Your savings is {c}[savingsTotal]{/c}" results in: Your Savings is $7,500
+    def c_tag(tag, argument, contents):
+        
+        result = []
+        
+        for kind, text in contents:
 
+            if kind == renpy.TEXT_TEXT:
+                try:
+                    convertedText = "$" + locale.format("%.0f", float(text), grouping=True)
+                except ValueError:
+                    convertedText = text
+        result.append((kind, convertedText))
 
+        return result
+
+    config.custom_text_tags["c"] = c_tag
 
 # The game starts here.
 label start:

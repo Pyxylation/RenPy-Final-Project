@@ -19,8 +19,8 @@ label evicted:
     $salaryNick = cashFlowStatement.getValue('salaryNick')
     $salaryWhit = cashFlowStatement.getValue('salaryWhit')
 
-    "Nick is now 33 years old and earns $[salaryNick]
-    \nWhitney is now 32 years old and earns $[salaryWhit]"
+    "Nick is now 33 years old and earns {c}[salaryNick]{/c}
+    \nWhitney is now 32 years old and earns {c}[salaryWhit]{/c}"
 
     #401K calcualtion
     $cashFlowStatement.changeItemValue("401K", int(eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03')))
@@ -33,7 +33,7 @@ label evicted:
     #Student loan payments
     $balanceSheet.changeItemValue("nicholasLoan", int((balanceSheet.getValue("nicholasLoan") - (cashFlowStatement.getValue("studentLoan"))*8)))
     $loan = balanceSheet.getValue("nicholasLoan")
-    "Nick still has $[loan] of student loans to pay off. "
+    "Nick still has {c}[loan]{/c} of student loans to pay off. "
 
     #Auto loans
     "Congradulations! Auto loans have been paid off"
@@ -63,13 +63,14 @@ label evicted:
 
     #fedEx stock if then statement
     if fedEx > oFedEx:
-        "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-        \n Total value is $[fedEx]. Thats $[stockProfit] in earnings!"
+        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
+        
     elif fedEx == oFedEx:
-        "FedEx portfolio valued at [fedEx] at $[share] per share"
+        "FedEx portfolio valued at [fedEx] at {c}[share]{/c} per share"
     else:
-        "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-        \n Total value is $[fedEx]. Thats $[stockProfit] loss"
+        "Nicks FedEx portfolio is down. Valued at: {/c}[share]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. Thats {/c}[stockProfit]{/c} loss"
 
     #K&B
     $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
@@ -79,13 +80,13 @@ label evicted:
 
     #fedEx stock if then statement
     if kB > oKB:
-        "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-        \n Total value is $[kB]. Thats $[stockProfit] in earnings!"
+        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
     elif kB == oKB:
-        "FedEx portfolio valued at [kB] at $[share] per share"
+        "FedEx portfolio valued at {c}[kB]{/c} at {c}[share]{/c} per share"
     else:
-        "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-        \n Total value is $[kB]. Thats $[stockProfit] loss"
+        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} loss"
 
         $adjustedRandJobNum = 0
     #Really Big data
@@ -106,7 +107,7 @@ label evicted:
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*8)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
-    "Current 401K Savings $[k401]."
+    "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
     $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
 
@@ -122,7 +123,7 @@ label evicted:
     $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
     "[nickCashFlow]"
     $savings = balanceSheet.getValue("savingsAcc")
-    "Nick now has $[savings] in his savings."
+    "Nick now has {c}[savings]{/c} in his savings."
 
     #TODO Figure out growth mutal fund, idk what to do with it right now.
 
