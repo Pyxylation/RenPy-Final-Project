@@ -32,7 +32,7 @@ label expanding:
     #Entertianment
     $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 7, .03)))
     #food
-    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 7, .03)))
+    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 7, .01)))
 
     #Stock Stuff, random between -2 and 8% increase/decrease
     #FedEx
@@ -116,17 +116,22 @@ label expanding:
     "Since Nick and Whitney now have a baby, they want to buy their very own house!"
 
     menu:
-        #FIXME Figure out house prices
-        "Where should they live?"
-        "City: $400000 15 year loan with a rate of 7.5\%\ Average $3708 monthly mortgage payment":
+        "Where should they live? Most house purchases require 20\%\ downpayment."
+        "City: $400000 15 year loan with a rate of 7.5\%\ Average $2966 monthly mortgage payment":
             #scene bg cityHouse
             "Congradualtions! Nick and Whitney are city-slickers now!"
             $balanceSheet.removeItem("houseDownPay")
+            $cashFlowStatement.removeItem("houseDownPay")
+            $cashFlowStatement.addItem("outflows", "mortgagePayment", "House Mortgage", 35592)
+            $balanceSheet.addItem("misLoans", "house", "House", 320000)
             $lifePoints += 120
-        "Suburb: $200000, 15 year loan with a rate of 7.5\%\ Average $1855 monthly mortgage payment": #Need escape character for a %, so \%\
+        "Suburb: $200000, 15 year loan with a rate of 7.5\%\ Average $1483 monthly mortgage payment": #Need escape character for a %, so \%\
             #scene bg subHouse
             "Congradulations! Nick and Whitney own a house in the subburb now!"
             $balanceSheet.removeItem("houseDownPay")
+            $cashFlowStatement.removeItem("houseDownPay")
+            $cashFlowStatement.addItem("outflows", "mortgagePayment", "House Mortgage", 2966)
+            $balanceSheet.addItem("misLoans", "house", "Home", 160000)
             $lifePoints += 85
 
 

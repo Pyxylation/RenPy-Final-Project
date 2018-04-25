@@ -40,7 +40,7 @@ label passing:
     #Entertianment
     $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 7, .03)))
     #food
-    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 7, .03)))
+    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 7, .01)))
 
     #Stock Stuff, random between -2 and 8% increase/decrease
     #FedEx

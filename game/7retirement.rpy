@@ -31,7 +31,7 @@ label retirement:
         #Entertianment
         $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 5, .03)))
         #food
-        $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 5, .03)))
+        $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 5, .01)))
 
         #Stock Stuff, random between -2 and 8% increase/decrease
         #FedEx
@@ -76,10 +76,7 @@ label retirement:
         #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
         $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
 
-        #How much money is saved for a house
-        $housePayment = cashFlowStatement.getValue("houseDownPay")
-        $eightHousePay = (housePayment*5)
-        $balanceSheet.changeItemValue("houseDownPay", eightHousePay)
+
 
         $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*5
         $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
@@ -92,9 +89,9 @@ label retirement:
 
     scene bg retirement
 
-    #TODO Total everying with the total amount
     if nickIsCrazy == True:
-        $money = balanceSheet.getValue("matressBank")
+        $money = balanceSheet.getValue("matressBank") + balanceSheet.getValue("fedExStock")
+        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("growthMutualFund") + balanceSheet.getValue("401K"))
 
     else:
         $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
@@ -104,18 +101,21 @@ label retirement:
     "Lets see how money and life points you ended up with!
     \n Life Points [lifePoints] & Money $[money]"
 
+    #TODO Make thing with low LP, like depression. 155LP is lowest, 630 LP is highest, 620 w/both crazy
+
     if money >= 1000000:
-        menu:
-            "You made it to retirement!
-            \nWhere would you like to live?"
-            "Beach":
-                "Congrats"
-            "Relaxing Subburb":
-                "Great"
 
-            "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET ME AND CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR ME!!!" if nickIsCrazy:
-                "Shoot!"
+        if nickIsCrazy == True:
+            menu:
+                "You made it to retirement!
+                \nWhere would you like to live?"
+                "Beach":
+                    "Congrats"
 
+                "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET ME AND CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR ME!!!" if nickIsCrazy:
+                    "Shoot!"
+        else:
+            "Congradualtions on your beach retirement"
     else:
         "Sorry... You didn't make it to 1 million...
         \n You played ya'self kid..."

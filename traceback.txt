@@ -1,29 +1,31 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/5theft.rpy", line 101, in script
-    if randJobNum >= 65 and nick10K == True:
-  File "game/5theft.rpy", line 101, in <module>
-    if randJobNum >= 65 and nick10K == True:
-NameError: name 'nick10K' is not defined
+  File "game/7retirement.rpy", line 26, in script
+    $fedTax()
+  File "game/7retirement.rpy", line 26, in <module>
+    $fedTax()
+  File "game/0Intro.rpy", line 18, in fedTax
+    cashFlowStatement.changeItemValue("fedTax", int((cashFlowStatement.getValue("salaryNick") + cashFlowStatement.getValue("salaryWhit") - cashFlowStatement.getValue("401K"))*.25))
+TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/5theft.rpy", line 101, in script
-    if randJobNum >= 65 and nick10K == True:
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 1702, in execute
-    if renpy.python.py_eval(condition):
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1843, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1836, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/5theft.rpy", line 101, in <module>
-    if randJobNum >= 65 and nick10K == True:
-NameError: name 'nick10K' is not defined
+  File "game/7retirement.rpy", line 26, in script
+    $fedTax()
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 848, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1812, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/7retirement.rpy", line 26, in <module>
+    $fedTax()
+  File "game/0Intro.rpy", line 18, in fedTax
+    cashFlowStatement.changeItemValue("fedTax", int((cashFlowStatement.getValue("salaryNick") + cashFlowStatement.getValue("salaryWhit") - cashFlowStatement.getValue("401K"))*.25))
+TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
 
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
 The Clintons:                     
 No, Not the Famous Ones Beta 1.0
-Tue Apr 24 22:44:08 2018
+Wed Apr 25 02:44:54 2018

@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/7retirement.rpy", line 96: else clause expects a non-empty block.
-    else:
-         ^
+File "game/2evicted.rpy", line 55: invalid syntax
+    cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 8, .01i)))
+                                                                                                       ^
+    
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Tue Apr 24 22:36:27 2018
+Wed Apr 25 02:56:06 2018

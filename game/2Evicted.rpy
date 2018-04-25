@@ -52,7 +52,7 @@ label evicted:
     #Entertianment
     $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 8, .03)))
     #food
-    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 8, .03)))
+    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 8, .01)))
 
     #Stock Stuff, random between -2 and 8% increase/decrease
     #FedEx

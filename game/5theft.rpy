@@ -35,11 +35,15 @@ label theft:
     $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc") + loan)
     "Nick has paid off his student loans!!!"
 
+    #Mortgage payment
+    $housePay = cashFlowStatement.getValue("mortgagePayment")*5
+    "Nick nad Whitney still have $[housePay] of their mortgage to pay off."
+
     #change stuff for 3% inflation, only food and fun!
     #Entertianment
     $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 10, .03)))
     #food
-    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 10, .03)))
+    $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 10, .01)))
 
     #Stock Stuff, random between -2 and 8% increase/decrease
     #FedEx
@@ -83,11 +87,6 @@ label theft:
     "Current 401K Savings $[k401]."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
     $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
-
-    #How much money is saved for a house
-    $housePayment = cashFlowStatement.getValue("houseDownPay")
-    $eightHousePay = (housePayment*7)
-    $balanceSheet.changeItemValue("houseDownPay", eightHousePay)
 
     $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*7
     $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
@@ -155,11 +154,11 @@ label theft:
             $lifePoints += 100
             $nickIsCrazy = True
             $matressBank = balanceSheet.getValue("checkingAcc")
-            $balanceSheet.removeItem("checkingAcc")
+            $balanceSheet.changeItemValue("checkingAcc", 0)
             $matressBank += balanceSheet.getValue("savingsAcc")
-            $balanceSheet.removeItem("savingsAcc")
+            $balanceSheet.changeItemValue("savingsAcc", 0)
             $balanceSheet.changeItemValue("matressBank", matressBank)
-            "Nick withdraws all the money from his bank account and liquidises all his investements, then adds them to his matress bank."
+            "Nick withdraws all the money from his bank account. He decides not to liquidize his assets quite yet."
             "Amount of money under matress: $[matressBank]"
 
     if momDebt == True:
