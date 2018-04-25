@@ -147,6 +147,7 @@ label evicted:
         "Move in with Whitney's brother. Its free and fun to hangout with her brother again! But, only for a bit till Nick can find another place to stay.":
             "Nick and Whitney had an awesome time spending time with her brother together again!"
             "They're both glad they decided to live together again for a bit"
+            $cashFlowStatement.changeItemValue("rent", 11500)
             $lifePoints += 100
 
         "Find temperary housing, expensive, and Nick will be a tenant at will again.

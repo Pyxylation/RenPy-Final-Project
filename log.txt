@@ -1,43 +1,26 @@
-Tue Apr 24 21:51:07 2018
+Tue Apr 24 22:24:40 2018
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
  
 
-Bootstrap to the start of init.init took 0.07s
+Bootstrap to the start of init.init took 0.11s
 Early init took 0.01s
-Loader init took 0.02s
-Loading error handling took 0.11s
-Loading script took 1.15s
-Loading save slot metadata. took 0.10s
+Loader init took 0.03s
+Loading error handling took 0.04s
+Loading script took 0.35s
+Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.45s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Dump and make backups. took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.02s
+
+File "game/5theft.rpy", line 114: invalid syntax
+    roiRBD =
+    
 DPI scale factor: 1.250000
-Creating interface object took 0.04s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.10s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.09s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.04s
+Interface start took 0.13s
 
 primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
-Screen sizes: virtual=(1920, 1080) physical=(1739, 978) drawable=(1739, 978)
+Screen sizes: virtual=(1920, 1080) physical=(1738, 978) drawable=(1738, 978)
 Vendor: 'Intel'
 Renderer: 'Intel(R) HD Graphics 530'
 Version: '4.5.0 - Build 22.20.16.4771'
@@ -257,53 +240,4 @@ Extensions:
     GL_NV_conditional_render
     GL_NV_primitive_restart
     GL_NV_texgen_reflection
-    GL_SGIS_generate_mipmap
-    GL_SGIS_texture_edge_clamp
-    GL_SGIS_texture_lod
-    GL_SUN_multi_draw_arrays
-    GL_WIN_swap_hint
-Number of texture units: 8
-Using shader environment.
-Using copy RTT.
-Using gl renderer.
-Texture testing:
-- Hardware max texture size: 16384
-- 64px textures work.
-- 128px textures work.
-- 256px textures work.
-- 512px textures work.
-- 1024px textures work.
-- 2048px textures work.
-Total time until interface ready: 6.18299984932s
-- Target is 5 frames in 0.333333333333 seconds.
-- Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.019667 seconds.
-- Frame drawn at 0.133667 seconds.
-- Frame drawn at 0.242666 seconds.
-- Frame drawn at 0.368667 seconds.
-- 0.368667 seconds to render 5 frames.
-- Frame drawn at 0.370667 seconds.
-- 0.351000 seconds to render 5 frames.
-- Frame drawn at 0.378667 seconds.
-- 0.245000 seconds to render 5 frames.
-Can't find a place to rollback to. Not rolling back.
-Can't find a place to rollback to. Not rolling back.
-Can't find a place to rollback to. Not rolling back.
-
-Full traceback:
-  File "game/2evicted.rpy", line 98, in script
-    $randJobNum += 10
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 848, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1812, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/2evicted.rpy", line 98, in <module>
-    $randJobNum += 10
-NameError: name 'randJobNum' is not defined
-
-While running game code:
-  File "game/2evicted.rpy", line 98, in script
-    $randJobNum += 10
-  File "game/2evicted.rpy", line 98, in <module>
-    $randJobNum += 10
-NameError: name 'randJobNum' is not defined
+    GL_SGIS_gene

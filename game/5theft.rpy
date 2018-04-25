@@ -111,8 +111,9 @@ label theft:
         scene bg deskbob #This is the normal desk with bobs name on it, not nicks!!!
         b "We are happy to report that Really Big Data is doing well!"
         b "You can finallly get a return on your investment!"
-        $roiRBD =
-        "Really Big Data gives you $10"
+        $roiRBD = renpy.random.randint(10, 15)*1000
+        $balanceSheet.incItemValue("savingsAcc", roiRBD)
+        "Really Big Data gives you $[roiRBD]"
 
 
     #Nick not investing and that paying off, but you dont get anything
