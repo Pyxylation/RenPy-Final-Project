@@ -17,8 +17,8 @@ label theft:
     #display salary
     $salaryNick = cashFlowStatement.getValue('salaryNick')
     $salaryWhit = cashFlowStatement.getValue('salaryWhit')
-    "Nick is now 55 years old and earns $[salaryNick]
-    \nWhitney is now 54 years old and earns $[salaryWhit]. Her salary is now maxed out."
+    "Nick is now 55 years old and earns {c}[salaryNick]{/c}
+    \nWhitney is now 54 years old and earns {c}[salaryWhit]{/c}. Her salary is now maxed out."
 
     #new 401K calcualtion
     $cashFlowStatement.changeItemValue("401K", int(eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03')))
@@ -37,7 +37,7 @@ label theft:
 
     #Mortgage payment
     $housePay = cashFlowStatement.getValue("mortgagePayment")*5
-    "Nick nad Whitney still have $[housePay] of their mortgage to pay off."
+    "Nick nad Whitney still have {c}[housePay]{/c} of their mortgage to pay off."
 
     #change stuff for 3% inflation, only food and fun!
     #Entertianment
@@ -54,13 +54,13 @@ label theft:
 
     #fedEx stock if then statement
     if fedEx > oFedEx:
-        "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-        \n Total value is $[fedEx]. Thats $[stockProfit] in earnings!"
+        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
     elif fedEx == oFedEx:
-        "FedEx portfolio valued at [fedEx] at $[share] per share"
+        "FedEx portfolio valued at [fedEx] at {c}[share]{/c} per share"
     else:
-        "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-        \n Total value is $[fedEx]. Thats $[stockProfit] loss"
+        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} loss"
 
     #K&B
     $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
@@ -70,13 +70,13 @@ label theft:
 
     #fedEx stock if then statement
     if kB > oKB:
-        "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-        \n Total value is $[kB]. Thats $[stockProfit] in earnings!"
+        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
     elif kB == oKB:
-        "FedEx portfolio valued at [kB] at $[share] per share"
+        "FedEx portfolio valued at [kB] at {c}[share]{/c} per share"
     else:
-        "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-        \n Total value is $[kB]. Thats $[stockProfit] loss"
+        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} loss"
 
         $adjustedRandJobNum = 0
 
@@ -84,7 +84,7 @@ label theft:
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*10)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
-    "Current 401K Savings $[k401]."
+    "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
     $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
 
@@ -92,7 +92,7 @@ label theft:
     $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
 
     $savings = balanceSheet.getValue("savingsAcc")
-    "Nick now has $[savings] in his savings."
+    "Nick now has {c}[savings]{/c} in his savings."
 
     $randJobNum = 70
     "Random Job Number: [randJobNum]"
@@ -112,7 +112,7 @@ label theft:
         b "You can finallly get a return on your investment!"
         $roiRBD = renpy.random.randint(10, 15)*1000
         $balanceSheet.incItemValue("savingsAcc", roiRBD)
-        "Really Big Data gives you $[roiRBD]"
+        "Really Big Data gives you {c}[roiRBD]{/c}"
 
 
     #Nick not investing and that paying off, but you dont get anything
@@ -159,7 +159,7 @@ label theft:
             $balanceSheet.changeItemValue("savingsAcc", 0)
             $balanceSheet.changeItemValue("matressBank", matressBank)
             "Nick withdraws all the money from his bank account. He decides not to liquidize his assets quite yet."
-            "Amount of money under matress: $[matressBank]"
+            "Amount of money under matress: {c}[matressBank]{/c}"
 
     if momDebt == True:
         "The creditors are back with a vengence!!!

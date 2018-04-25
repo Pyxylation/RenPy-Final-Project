@@ -18,8 +18,8 @@ label dependent:
     #display salary
     $salaryNick = cashFlowStatement.getValue('salaryNick')
     $salaryWhit = cashFlowStatement.getValue('salaryWhit')
-    "Nick is now 60 years old and earns $[salaryNick]
-    \nWhitney is now 59 years old and earns $[salaryWhit]"
+    "Nick is now 60 years old and earns {c}[salaryNick]{/c}
+    \nWhitney is now 59 years old and earns {c}[salaryWhit]{/c}"
 
     #new 401K calcualtion
     $cashFlowStatement.changeItemValue("401K", int(eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03')))
@@ -49,13 +49,13 @@ label dependent:
 
     #fedEx stock if then statement
     if fedEx > oFedEx:
-        "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-        \n Total value is $[fedEx]. Thats $[stockProfit] in earnings!"
+        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
     elif fedEx == oFedEx:
-        "FedEx portfolio valued at [fedEx] at $[share] per share"
+        "FedEx portfolio valued at [fedEx] at {c}[share]{/c} per share"
     else:
-        "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-        \n Total value is $[fedEx]. Thats $[stockProfit] loss"
+        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} loss"
 
     #K&B
     $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
@@ -65,13 +65,13 @@ label dependent:
 
     #fedEx stock if then statement
     if kB > oKB:
-        "Nicks FedEx portfolio is looking good! Valued at: $[share] per share.
-        \n Total value is $[kB]. Thats $[stockProfit] in earnings!"
+        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
     elif kB == oKB:
-        "FedEx portfolio valued at [kB] at $[share] per share"
+        "FedEx portfolio valued at [kB] at {c}[share]{/c} per share"
     else:
-        "Nicks FedEx portfolio is down. Valued at: $[share] per share.
-        \n Total value is $[kB]. Thats $[stockProfit] loss"
+        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
+        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} loss"
 
         $adjustedRandJobNum = 0
 
@@ -79,7 +79,7 @@ label dependent:
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*7)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
-    "Current 401K Savings $[k401]."
+    "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
     $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
 
@@ -87,13 +87,13 @@ label dependent:
     if nickIsCrazy == True:
         $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*5
         $matress = balanceSheet.getValue("matressBank")
-        "Nick now has $[matress] under his matress."
+        "Nick now has {c}[matress]{/c} under his matress."
     else:
         $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*5
         $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
 
         $savings = balanceSheet.getValue("savingsAcc")
-        "Nick now has $[savings] in his savings."
+        "Nick now has {c}[savings]{/c} in his savings."
 
 
 
@@ -130,7 +130,7 @@ label dependent:
     if nickIsCrazy == False and identityStolen == True and stolenRand <= 75:
         $stolenMultiplied = stolenRand * 1000
         $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc")-stolenMultiplied)
-        "Oh no!!! You should have paid for Life Lock! You lost $[stolenMultiplied]"
+        "Oh no!!! You should have paid for Life Lock! You lost {c}[stolenMultiplied]{/c}"
     else:
         jump retirement
 
