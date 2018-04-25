@@ -90,7 +90,6 @@ label retirement:
 
 
     scene bg retirement
-    "TOTAL MONEY AT THE END!!! $[money]"
 
     #TODO Total everying with the total amount
     if nickIsCrazy == True:

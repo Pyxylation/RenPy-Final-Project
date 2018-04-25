@@ -1,27 +1,33 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/2evicted.rpy", line 98, in script
-    $randJobNum += 10
-  File "game/2evicted.rpy", line 98, in <module>
-    $randJobNum += 10
-NameError: name 'randJobNum' is not defined
+  File "game/7retirement.rpy", line 93, in script
+    "TOTAL MONEY AT THE END!!! $[money]"
+KeyError: u'money'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/2evicted.rpy", line 98, in script
-    $randJobNum += 10
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 848, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1812, in py_exec_bytecode
-    exec bytecode in globals, locals
-  File "game/2evicted.rpy", line 98, in <module>
-    $randJobNum += 10
-NameError: name 'randJobNum' is not defined
+  File "game/7retirement.rpy", line 93, in script
+    "TOTAL MONEY AT THE END!!! $[money]"
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 643, in execute
+    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\exports.py", line 1176, in say
+    who(what, *args, **kwargs)
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\character.py", line 1000, in __call__
+    what = what_pattern.replace("[what]", sub(what, translate=translate))
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\character.py", line 982, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\substitutions.py", line 242, in substitute
+    s = formatter.vformat(s, (), kwargs)
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
+  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
+KeyError: u'money'
 
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
 The Clintons:                     
 No, Not the Famous Ones Beta 1.0
-Tue Apr 24 21:52:53 2018
+Tue Apr 24 22:41:09 2018
