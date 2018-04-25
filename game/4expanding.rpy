@@ -118,12 +118,12 @@ label expanding:
     menu:
         #FIXME Figure out house prices
         "Where should they live?"
-        "City: $400000 15 year loan with a rate of 7.5\%\ Average $600 monthly mortgage payment":
+        "City: $400000 15 year loan with a rate of 7.5\%\ Average $3708 monthly mortgage payment":
             #scene bg cityHouse
             "Congradualtions! Nick and Whitney are city-slickers now!"
             $balanceSheet.removeItem("houseDownPay")
             $lifePoints += 120
-        "Suburb: $200000, 15 year loan with a rate of 7.5\%\ Average $600 monthly mortgage payment": #Need escape character for a %, so \%\
+        "Suburb: $200000, 15 year loan with a rate of 7.5\%\ Average $1854 monthly mortgage payment": #Need escape character for a %, so \%\
             #scene bg subHouse
             "Congradulations! Nick and Whitney own a house in the subburb now!"
             $balanceSheet.removeItem("houseDownPay")
