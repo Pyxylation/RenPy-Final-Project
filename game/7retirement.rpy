@@ -109,13 +109,14 @@ label retirement:
                 "Nick made it to retirement!
                 \nWhere would you like Nick to live?"
                 "Beach":
-                    "Congrats"
-
+                    "What up Beaches"
                 "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET NICK! CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR HIM!!!" if nickIsCrazy:
                     "Shoot!"
         else:
-            "You made it to retirement!"
-            "Congradualtions on your beach retirement"
+            if lifePoints <=180:
+                "Nick made it to retirement! But, he got depression in the process..."
+            else:
+                "Congrats! No Depression"
 
     elif nickIsCrazy == True and money < 1000000:
         "Nick went crazy and didn't make it to retirement... "

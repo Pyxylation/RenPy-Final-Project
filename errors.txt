@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/7retirement.rpy", line 120: reached end of line when expecting ':'.
-    elif nickIsCrazy == True and money < 1000000
-                                                ^
-
-File "game/7retirement.rpy", line 123: expected statement.
-    else:
-        ^
+File "game/7retirement.rpy", line 111: choice menuitem expects a non-empty block.
+    "Beach":
+            ^
 
 Ren'Py Version: Ren'Py 6.99.14.1.3218
-Wed Apr 25 15:18:40 2018
+Wed Apr 25 15:31:04 2018
