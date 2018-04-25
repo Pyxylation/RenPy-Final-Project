@@ -9,7 +9,8 @@
 label dependent:
 
     # 5 years
-
+    scene bg 5yearslater
+    
     if nickIsCrazy == False:
         #salary increase
         #$cashFlowStatement.changeItemValue("salaryNick", salaryIncrease(5, "salaryNick"))

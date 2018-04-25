@@ -9,7 +9,7 @@
 label expanding:
 
     # 5 years
-
+    scene bg 5yearslater
     #salary increase
     # $cashFlowStatement.changeItemValue("salaryNick", salaryIncrease(5, "salaryNick")), nicks salary gets capped
     $cashFlowStatement.changeItemValue("salaryWhit", salaryIncrease(5, "salaryWhit"))
@@ -89,7 +89,7 @@ label expanding:
 
 
 
-    scene bg neighborhood
+    scene bg boyorgirl
     with dissolve
 
     "BOOM! Its time have a kid! 99\%\ effective didnt matter here"
@@ -99,12 +99,12 @@ label expanding:
 
     if randBaby == 0:
         scene bg boy
-        $randBoy = renpy.random.choice(["Noah", "Liam", "Jacob", "William", "Ethan", "James", "Micheal", "Beenjamin'", "Elijah", "Daniel", "Aiden", "Logan", "Matthew", "Lucas", "Jackson", "David", "Oliver"])
+        $randBoy = renpy.random.choice(["Noah", "Liam", "Jacob", "William", "Ethan", "James", "Michael", "Beenjamin'", "Elijah", "Daniel", "Aiden", "Logan", "Matthew", "Lucas", "Jackson", "David", "Oliver"])
         "           Its a boy!!!!"
         "Nick and Whittney named him [randBoy]! "
     else:
         scene bg girl
-        $randGirl = renpy.random.choice(["Emma", "Olivia", "Sophia", "Ava", "Isabella", "M.I.A.", "Abigail", "Emily", "Charlotte", "Harper", "Madison", "Amelia", "Elizabeth", "Sofia", "Evelyn", "Chloe", "Ella"])
+        $randGirl = renpy.random.choice(["Emma", "Olivia", "Sophia", "Ava", "Isabella", "Mia", "Abigail", "Emily", "Charlotte", "Harper", "Madison", "Amelia", "Elizabeth", "Sofia", "Evelyn", "Chloe", "Ella"])
         "           It's a girl!!!"
         "Nick and Whittney named her [randGirl]! "
 

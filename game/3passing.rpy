@@ -9,7 +9,7 @@
 label passing:
 
     # 7 years
-    scene sevenyears
+    scene bg 7yearslater
 
     #salary increase
     $cashFlowStatement.changeItemValue("salaryNick", salaryIncrease(7, "salaryNick"))
