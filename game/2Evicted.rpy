@@ -8,7 +8,7 @@
 # This is 2 years after the investment right now, we can always change it
 label evicted:
 
-    scene bg space
+    scene bg 8yearslater
 
     # scene bg timesChange
     # 8 years

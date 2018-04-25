@@ -9,7 +9,7 @@
 label theft:
 
     # 10 years
-
+    scene bg 10yearslater
     #salary increase
     # $cashFlowStatement.changeItemValue("salaryNick", salaryIncrease(10, "salaryNick")) Nick job capped
     # $cashFlowStatement.changeItemValue("salaryWhit", salaryIncrease(10, "salaryWhit")) Whitney Capped also
