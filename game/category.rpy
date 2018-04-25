@@ -2,6 +2,9 @@
 # Also includes the setup of cashflow and balancesheet with inital values
 
 init -2 python:
+    import locale
+    locale.setlocale( locale.LC_ALL, '' )
+    
     cashflow = {}
     balancesheet = {}
     displayList = []
@@ -195,7 +198,8 @@ init -2 python:
                         self.itemTally += item.value*-1
                     else:
                         self.itemTally += item.value
-            displayList.append(displayItem(self.catId, "CategorySumary", self.title, self.level, self.talleyDisplay(self.itemTally)))
+            #displayList.append(displayItem(self.catId, "CategorySumary", self.title, self.level, self.talleyDisplay(self.itemTally)))
+            displayList.append(displayItem(self.catId, "CategorySumary", self.title, self.level, self.itemTally))
             return self.itemTally
 
         def talleyDisplay(self,tally):

@@ -100,33 +100,55 @@ screen cashflowScreen(adj):
                                     first_indent 70
                                 elif i.level == 3:
                                     first_indent 90
-                            text str(i.value):
-                                xalign 1.0
+                            if (i.value < 0):
+                                text "$" + "(" + locale.format("%.0f", abs(i.value), grouping=True) + ")":
+                                    xalign 1.0
+                            else:
+                                text "$" + locale.format("%.0f", i.value, grouping=True):
+                                    xalign 1.0
                     if i.kind == "Item" and i.userEdit == False:
-                        text i.title + ": " + str(i.value):
-                            if i.level == 1:
-                                first_indent 30
-                            elif i.level == 2:
-                                first_indent 50
-                            elif i.level == 3:
-                                first_indent 70
+                        hbox:
+                            if i.level == 3:
+                                xminimum 1000
+                            else:
+                                xminimum 1200
+                            yfit True
+                            text i.title:
+                                if i.level == 1:
+                                    first_indent 30
+                                elif i.level == 2:
+                                    first_indent 50
+                                elif i.level == 3:
+                                    first_indent 70
+                            if (i.value < 0):
+                                text "$" + "(" + locale.format("%.0f", abs(i.value), grouping=True) + ")":
+                                    xalign 1.0
+                            else:
+                                text "$" + locale.format("%.0f", i.value, grouping=True):
+                                    xalign 1.0
                     if i.kind == "Item" and i.userEdit:
-                        textbutton i.title + ": " + str(i.value):
-                            action Return(i)
-                            if i.level == 1:
-                                left_padding 30
-                            elif i.level == 2:
-                                left_padding 50
-                            elif i.level == 3:
-                                left_padding 70
-                            xfill True
-                    #else:
-                    #   null height 10
-                    #    text i.title + " else: " + i.kind alt ""
-                    #    null height 5
-
-
-
+                        hbox:
+                            if i.level == 3:
+                                xminimum 1000
+                            else:
+                                xminimum 1200
+                            yfit True
+                            textbutton i.title:
+                                action Return(i)
+                                if i.level == 1:
+                                    left_padding 30
+                                elif i.level == 2:
+                                    left_padding 50
+                                elif i.level == 3:
+                                    left_padding 70
+                            if (i.value < 0):
+                                textbutton "$" + "(" + locale.format("%.0f", abs(i.value), grouping=True) + ")":
+                                    action Return(i)
+                                    xalign 1.0
+                            else:
+                                textbutton "$" + locale.format("%.0f", i.value, grouping=True):
+                                    action Return(i)
+                                    xalign 1.0
 
         bar adjustment adj style "vscrollbar"
 
