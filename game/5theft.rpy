@@ -96,16 +96,30 @@ label theft:
     "Nick now has $[savings] in his savings."
 
 
-
+    "Random Job Number: [randJobNum]"
     # Nick may get a job at Really Big Data!
-    if randJobNum >= 65:
+    if randJobNum >= 65 and nick10K == True:
         scene bg deskjob
-        "Random Job Number: [randJobNum]"
         b "Hi Nick! Thanks to your help and investment in Really Big Data we have been doing really well."
         b "Our CMO just left. I was wondering if you wanted the job."
         n "I'd love it! Thank you very much!"
         "Nicks investment finally paid off. His new salary is $110000"
         $cashFlowStatement.changeItemValue("salaryNick", 110000)
+
+    #Nick investing and that paying off
+    elif randJobNum >= 65 and nick1K == True:
+        scene bg deskbob #This is the normal desk with bobs name on it, not nicks!!!
+        b "We are happy to report that Really Big Data is doing well!"
+        b "You can finallly get a return on your investment!"
+        $roiRBD =
+        "Really Big Data gives you $10"
+
+
+    #Nick not investing and that paying off, but you dont get anything
+    elif randJobNum >=65 and nick10K == False and nick1K == False:
+        scene bg deskbob #This is the normal desk with bobs name on it, not nicks!!!
+
+    #The company failing regardless
     else:
         "Really Big Data has just gone bankrupt"
         "Nicks investment had potential, but it wasnt enough to keep them afloat.

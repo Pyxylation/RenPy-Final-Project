@@ -1,27 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/7retirement.rpy", line 94, in script
-    $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
-  File "game/7retirement.rpy", line 94, in <module>
-    $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
-TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+  File "game/2evicted.rpy", line 98, in script
+    $randJobNum += 10
+  File "game/2evicted.rpy", line 98, in <module>
+    $randJobNum += 10
+NameError: name 'randJobNum' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/7retirement.rpy", line 94, in script
-    $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
+  File "game/2evicted.rpy", line 98, in script
+    $randJobNum += 10
   File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 848, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1812, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "game/7retirement.rpy", line 94, in <module>
-    $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
-TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+  File "game/2evicted.rpy", line 98, in <module>
+    $randJobNum += 10
+NameError: name 'randJobNum' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
 The Clintons:                     
 No, Not the Famous Ones Beta 1.0
-Tue Apr 24 18:35:36 2018
+Tue Apr 24 21:52:53 2018

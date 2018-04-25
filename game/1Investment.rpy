@@ -17,6 +17,11 @@ label Investment:
         analysis and I was wondering if you wanted to be a investor?"
     n "That sounds interesting! Let me think about it..."
 
+    #random number to determine if nick gets the job or not
+    $randJobNum = renpy.random.randint(0, 100)
+    $nickJob = False
+    $nickInvest = False
+
     menu:
         "Nick doesnt directly have $10,000 to give.
             \n How will he invest in Really Big Data?"
@@ -36,22 +41,23 @@ label Investment:
                 $balanceSheet.addItem("invest/Save", "RBD", "Really Big Data Investment", 10000) #RBD = Really Big Data
                 $balanceSheet.changeItemValue("savingsAcc", .01)
 
-                #random number to determine if nick gets the job or not
-                $randJobNum = renpy.random.randint(0, 100)
+                #boolean to show that nick invested in the company
+                $nick10K = True
                 #becase nick helped with the company, so there is a greater chance for this success
                 $randJobNum += 15
 
                 "Whittney sold her car for $26,474, used $9000 for the investent,
                     \nused $5000 to pay off her loan, and purchased a new car worth $12646."
 
-
+        
         "Invest $1,000 all from savings":
 
             scene bg handshake
             $balanceSheet.addItem("invest/Save", "RBD", "Really Big Data Investment", 1000) #RBD = Really Big Data
             $balanceSheet.changeItemValue("savingsAcc", .01)
             "I'd love to invest! I can't wait to see how things go!"
-            $randJobNum = renpy.random.randint(0, 100)
+
+            $nick1K = True
             $lifePoints += 30
 
         "Dont invest":

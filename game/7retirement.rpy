@@ -116,11 +116,10 @@ label retirement:
                     "Congrats"
                 "Relaxing Subburb":
                     "Great"
-                #TODO Should this require both choices?
+
                 "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET ME AND CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR ME!!!" if nickIsCrazy:
                     "Shoot!"
-                "Something crazier than the mountians???" if nickIsCrazy and crazyBrokenLeg:
-                    "Lit!"
+
         else:
             "Sorry... You didn't make it to 1 million...
             \n You played ya'self kid..."
