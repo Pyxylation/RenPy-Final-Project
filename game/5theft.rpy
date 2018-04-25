@@ -95,7 +95,7 @@ label theft:
     $savings = balanceSheet.getValue("savingsAcc")
     "Nick now has $[savings] in his savings."
 
-
+    $randJobNum = 70
     "Random Job Number: [randJobNum]"
     # Nick may get a job at Really Big Data!
     if randJobNum >= 65 and nick10K == True:
@@ -119,6 +119,7 @@ label theft:
     #Nick not investing and that paying off, but you dont get anything
     elif randJobNum >=65 and nick10K == False and nick1K == False:
         scene bg deskbob #This is the normal desk with bobs name on it, not nicks!!!
+        "You didnt invest, but the company is rockin"
 
     #The company failing regardless
     else:

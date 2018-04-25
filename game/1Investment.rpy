@@ -19,8 +19,8 @@ label Investment:
 
     #random number to determine if nick gets the job or not
     $randJobNum = renpy.random.randint(0, 100)
-    $nickJob = False
-    $nickInvest = False
+    $nick10K = False
+    $nick1K = False
 
     menu:
         "Nick doesnt directly have $10,000 to give.
@@ -49,7 +49,7 @@ label Investment:
                 "Whittney sold her car for $26,474, used $9000 for the investent,
                     \nused $5000 to pay off her loan, and purchased a new car worth $12646."
 
-        
+
         "Invest $1,000 all from savings":
 
             scene bg handshake

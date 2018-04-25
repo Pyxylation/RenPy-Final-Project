@@ -1,33 +1,29 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/7retirement.rpy", line 93, in script
-    "TOTAL MONEY AT THE END!!! $[money]"
-KeyError: u'money'
+  File "game/5theft.rpy", line 101, in script
+    if randJobNum >= 65 and nick10K == True:
+  File "game/5theft.rpy", line 101, in <module>
+    if randJobNum >= 65 and nick10K == True:
+NameError: name 'nick10K' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/7retirement.rpy", line 93, in script
-    "TOTAL MONEY AT THE END!!! $[money]"
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 643, in execute
-    renpy.exports.say(who, what, interact=self.interact, *args, **kwargs)
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\exports.py", line 1176, in say
-    who(what, *args, **kwargs)
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\character.py", line 1000, in __call__
-    what = what_pattern.replace("[what]", sub(what, translate=translate))
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\character.py", line 982, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\substitutions.py", line 242, in substitute
-    s = formatter.vformat(s, (), kwargs)
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 563, in vformat
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 585, in _vformat
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 646, in get_field
-  File "/home/tom/ab/x64lucid-deps/install/lib/python2.7/string.py", line 605, in get_value
-KeyError: u'money'
+  File "game/5theft.rpy", line 101, in script
+    if randJobNum >= 65 and nick10K == True:
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\ast.py", line 1702, in execute
+    if renpy.python.py_eval(condition):
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1843, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "D:\OneDrive - Wright State University\School Documents\College\4) Senior Year\2nd Semester\Capstone\RenPy\renpy-6.99.14.1-sdk\renpy\python.py", line 1836, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/5theft.rpy", line 101, in <module>
+    if randJobNum >= 65 and nick10K == True:
+NameError: name 'nick10K' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 6.99.14.1.3218
 The Clintons:                     
 No, Not the Famous Ones Beta 1.0
-Tue Apr 24 22:41:09 2018
+Tue Apr 24 22:44:08 2018
