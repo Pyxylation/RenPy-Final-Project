@@ -101,7 +101,6 @@ label retirement:
     "Lets see how money and life points you ended up with!
     \n Life Points [lifePoints] & Money $[money]"
 
-    #TODO Make thing with low LP, like depression. 155LP is lowest, 630 LP is highest, 620 w/both crazy
     if money >= 1000000:
 
         if nickIsCrazy == True:
