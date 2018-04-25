@@ -123,7 +123,7 @@ label expanding:
             "Congradualtions! Nick and Whitney are city-slickers now!"
             $balanceSheet.removeItem("houseDownPay")
             $lifePoints += 120
-        "Suburb: $200000, 15 year loan with a rate of 7.5\%\ Average $1854 monthly mortgage payment": #Need escape character for a %, so \%\
+        "Suburb: $200000, 15 year loan with a rate of 7.5\%\ Average $1855 monthly mortgage payment": #Need escape character for a %, so \%\
             #scene bg subHouse
             "Congradulations! Nick and Whitney own a house in the subburb now!"
             $balanceSheet.removeItem("houseDownPay")
