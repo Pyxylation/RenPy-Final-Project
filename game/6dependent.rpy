@@ -18,8 +18,6 @@ label dependent:
     #display salary
     $salaryNick = cashFlowStatement.getValue('salaryNick')
     $salaryWhit = cashFlowStatement.getValue('salaryWhit')
-    "Nick is now 60 years old and earns {c}[salaryNick]{/c}
-    \nWhitney is now 59 years old and earns {c}[salaryWhit]{/c}"
 
     #new 401K calcualtion
     $cashFlowStatement.changeItemValue("401K", int(eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03')))
@@ -29,7 +27,6 @@ label dependent:
     #FICA tax, Social security = 6.2% and Medicare is 1.45%, flat tax under 200K, over adds .9% to Medicare
     $ficaCalcAdd()
 
-    "Congradulations!!! Nick and Whitney have paid off their house!!!"
     $cashFlowStatement.removeItem("mortgagePayment")
     $houseValue = balanceSheet.getValue("house")
     $balanceSheet.addItem("assets", "house", "House", houseValue)
@@ -43,59 +40,83 @@ label dependent:
     #Stock Stuff, random between -2 and 8% increase/decrease
     #FedEx
     $oFedEx = balanceSheet.getValue("fedExStock") #original fedEx portfolio vlaue
-    $stockProfit = int(stockMarket(7, "fedExStock")) #profit made during 8 years
+    $fedExStockGL = int(stockMarket(8, "fedExStock")) #profit made during 8 years
     $fedEx = int(balanceSheet.getValue("fedExStock")) #current fedEx protfolio value
-    $share = int(fedEx/100) #price of stock per share
+    $fedExShare = int(fedEx/100) #price of stock per share
 
     #fedEx stock if then statement
+    #$fedExGL = "nOTHING"
+    $fedExStatus = "nothing"
     if fedEx > oFedEx:
-        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
-    elif fedEx == oFedEx:
-        "FedEx portfolio valued at [fedEx] at {c}[share]{/c} per share"
+        $fedExStatus = "looking excellent!"
+        $fedExGL = "gain." #if there is loss or gain
+    elif kB == oKB:
+        $fedExStatus = "doing alright."
+        $fedExBGL = "the same."
     else:
-        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} loss"
+        $fedExStatus = "looking bad."
+        $fedExGL = "loss"
 
     #K&B
     $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
-    $stockProfit = int(stockMarket(7, "k&bStock")) #profit made during 8 years
+    $kBStockGL = int(stockMarket(8, "k&bStock")) #profit made during 8 years
     $kB = int(balanceSheet.getValue("k&bStock")) #current fedEx protfolio value
-    $share = int(kB/100) #price of stock per share
-
+    $kBShare = int(kB/100) #price of stock per share
+    $kBGL = "nOTHING"
+    $kBStatus = "nothing"
     #fedEx stock if then statement
     if kB > oKB:
-        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
+        $kBStatus = "looking great!"
+        $kBGL = "gain." #if there is loss or gain
     elif kB == oKB:
-        "FedEx portfolio valued at [kB] at {c}[share]{/c} per share"
+        $kBStatus = "doing okay."
+        $kBGL = "the same."
     else:
-        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} loss"
-
-        $adjustedRandJobNum = 0
+        $kBStatus = "looking problematic."
+        $kBGL = "loss"
 
 
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*7)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
-    "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
     $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.025))
-
 
     if nickIsCrazy == True:
         $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*5
         $matress = balanceSheet.getValue("matressBank")
-        "Nick now has {c}[matress]{/c} under his matress."
+        $location = "under his matress."
     else:
         $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*5
         $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
 
         $savings = balanceSheet.getValue("savingsAcc")
-        "Nick now has {c}[savings]{/c} in his savings."
+        $location = "in his savings."
 
 
+    scene bg yearslaterbar
+    menu:
+        "{size=-5}{b}{u}5 Years Later{/u}{/b}
+        \n
+        - Nick is now 60 years old and earns {c}[salaryNick]{/c}.
+        \n- Whitney is now 59 years old and earns {c}[salaryWhit]{/c}. Her salary has maxed out at her current job.
+        \n
+        \n {u}Mortgage{/u}
+        \n- Congradulations!!! Nick and Whitney have paid off their house!!!
+        \n
+        \n {u}Investments{/u}
+        \n - Nick's K&B portfolio is [kBStatus] Valued at: {c}[kBShare]{/c} per share.
+        \n Total value is {c}[kB]{/c}. That's is a {c}[kBStockGL]{/c} [kBGL]
+        \n - Nick's FedEx portfolio is [fedExStatus] Valued at: {c}[fedExShare]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. That's a {c}[fedExStockGL]{/c} [fedExGL]
+        \n
+        \n - Nick now has {c}[savings]{/c} [location]{/size}":
+            jump dependentReal
+        "{size=-5}Click Here to Continue{/size}":
+            jump dependentReal
+
+
+label dependentReal:
 
     scene bg brokenleg
 

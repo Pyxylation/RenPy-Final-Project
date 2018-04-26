@@ -68,6 +68,7 @@ label evicted:
         $fedExGL = "loss"
 
     #K&B
+    $kB = "nothing"
     $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
     $kBStockGL = int(stockMarket(8, "k&bStock")) #profit made during 8 years
     $kB = int(balanceSheet.getValue("k&bStock")) #current fedEx protfolio value
@@ -85,27 +86,12 @@ label evicted:
         $kBStatus = "looking problematic."
         $kBGL = "loss"
 
-        #$adjustedRandJobNum = 0
-    #Really Big data
-    #"Finally, lets see if Really Big Data is doing well"
-    #RNG 1=doing well, 2=doing okay, 3=doing badly, but there is still a chance
-    #$rdbRand = renpy.random.randint(0, 100)
-
-    #if rdbRand < 45:
-    #    "Theyre doing well and gaining reputation for great business analytics"
-    #    $randJobNum += 10
-    #elif rdbRand >= 45 and rdbRand < 80:
-    #    "They have been doing okay, but still working on improving their business"
-    #elif rdbRand >= 80:
-    #    "They haven't been doing that well... Hopefully they can improve in the future."
-    #    $randJobNum -= 5
-
 
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*8)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
-    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
+    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.025))
 
     #How much money is saved for a house
     $housePayment = cashFlowStatement.getValue("houseDownPay")
@@ -122,8 +108,8 @@ label evicted:
     menu:
         "{size=-5}{b}{u}8 Years Later{/u}{/b}
         \n
-        - Nick is now 33 years old and earns {c}[salaryNick]{/c}
-        \nWhitney is now 32 years old and earns {c}[salaryWhit]{/c}
+        - Nick is now 33 years old and earns {c}[salaryNick]{/c}.
+        \nWhitney is now 32 years old and earns {c}[salaryWhit]{/c}.
         \n
         \n {u}Loans{/u}
         \n
@@ -134,9 +120,9 @@ label evicted:
         \n
         \n {u}Investments{/u}
         \n - Nick's K&B portfolio is [kBStatus] Valued at: {c}[kBShare]{/c} per share.
-        \n Total value is {c}[kB]{/c}. That is a {c}[kBStockGL]{/c} [kBGL]
+        \n Total value is {c}[kB]{/c}. That's a {c}[kBStockGL]{/c} [kBGL]
         \n - Nick's FedEx portfolio is [fedExStatus] Valued at: {c}[fedExShare]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. That is a {c}[fedExStockGL]{/c} [fedExGL]
+        \n Total value is {c}[fedEx]{/c}. That's a {c}[fedExStockGL]{/c} [fedExGL]
         \n
         \n Nick now has {c}[savings]{/c} in his savings.{/size}":
             jump evictedReal

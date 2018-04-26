@@ -10,6 +10,7 @@ label theft:
 
     # 10 years
     scene bg 10yearslater
+    " "
     #salary increase
     # $cashFlowStatement.changeItemValue("salaryNick", salaryIncrease(10, "salaryNick")) Nick job capped
     # $cashFlowStatement.changeItemValue("salaryWhit", salaryIncrease(10, "salaryWhit")) Whitney Capped also
@@ -17,8 +18,6 @@ label theft:
     #display salary
     $salaryNick = cashFlowStatement.getValue('salaryNick')
     $salaryWhit = cashFlowStatement.getValue('salaryWhit')
-    "Nick is now 55 years old and earns {c}[salaryNick]{/c}
-    \nWhitney is now 54 years old and earns {c}[salaryWhit]{/c}. Her salary is now maxed out."
 
     #new 401K calcualtion
     $cashFlowStatement.changeItemValue("401K", int(eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03')))
@@ -33,58 +32,58 @@ label theft:
     $loan = abs(balanceSheet.getValue("nicholasLoan"))
     $balanceSheet.changeItemValue("nicholasLoan", 0)
     $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc") + loan)
-    "Nick has paid off his student loans!!!"
 
     #Mortgage payment
     $housePay = cashFlowStatement.getValue("mortgagePayment")*5
-    "Nick nad Whitney still have {c}[housePay]{/c} of their mortgage to pay off."
 
     #change stuff for 3% inflation, only food and fun!
     #Entertianment
-    $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 10, .03)))
+    $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 10, .025)))
     #food
     $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 10, .01)))
 
     #Stock Stuff, random between -2 and 8% increase/decrease
     #FedEx
     $oFedEx = balanceSheet.getValue("fedExStock") #original fedEx portfolio vlaue
-    $stockProfit = int(stockMarket(10, "fedExStock")) #profit made during 8 years
+    $fedExStockGL = int(stockMarket(8, "fedExStock")) #profit made during 8 years
     $fedEx = int(balanceSheet.getValue("fedExStock")) #current fedEx protfolio value
-    $share = int(fedEx/100) #price of stock per share
+    $fedExShare = int(fedEx/100) #price of stock per share
 
     #fedEx stock if then statement
+    #$fedExGL = "nOTHING"
+    $fedExStatus = "nothing"
     if fedEx > oFedEx:
-        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
-    elif fedEx == oFedEx:
-        "FedEx portfolio valued at [fedEx] at {c}[share]{/c} per share"
+        $fedExStatus = "looking excellent!"
+        $fedExGL = "gain." #if there is loss or gain
+    elif kB == oKB:
+        $fedExStatus = "doing alright."
+        $fedExBGL = "the same."
     else:
-        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} loss"
+        $fedExStatus = "looking bad."
+        $fedExGL = "loss"
 
     #K&B
     $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
-    $stockProfit = int(stockMarket(10, "k&bStock")) #profit made during 8 years
+    $kBStockGL = int(stockMarket(8, "k&bStock")) #profit made during 8 years
     $kB = int(balanceSheet.getValue("k&bStock")) #current fedEx protfolio value
-    $share = int(kB/100) #price of stock per share
-
+    $kBShare = int(kB/100) #price of stock per share
+    $kBGL = "nOTHING"
+    $kBStatus = "nothing"
     #fedEx stock if then statement
     if kB > oKB:
-        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
+        $kBStatus = "looking great!"
+        $kBGL = "gain." #if there is loss or gain
     elif kB == oKB:
-        "FedEx portfolio valued at [kB] at {c}[share]{/c} per share"
+        $kBStatus = "doing okay."
+        $kBGL = "the same."
     else:
-        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} loss"
-
-        $adjustedRandJobNum = 0
+        $kBStatus = "looking problematic."
+        $kBGL = "loss"
 
 
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*10)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
-    "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
     $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.025))
 
@@ -92,10 +91,36 @@ label theft:
     $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
 
     $savings = balanceSheet.getValue("savingsAcc")
-    "Nick now has {c}[savings]{/c} in his savings."
+
+
+    scene bg yearslaterbar
+    menu:
+        "{size=-5}{b}{u}10 Years Later{/u}{/b}
+        \n
+        - Nick is now 55 years old and earns {c}[salaryNick]{/c}.
+        \n- Whitney is now 54 years old and earns {c}[salaryWhit]{/c}. Her salary has maxed out at her current job.
+        \n
+        \n {u}Loan{/u}
+        \n- Nick has paid off his student loans!!!
+        \n
+        \n {u}Mortgage{/u}
+        \n- Nick nad Whitney still have {c}[housePay]{/c} of their mortgage to pay off.
+        \n
+        \n {u}Investments{/u}
+        \n - Nick's K&B portfolio is [kBStatus] Valued at: {c}[kBShare]{/c} per share.
+        \n Total value is {c}[kB]{/c}. That's is a {c}[kBStockGL]{/c} [kBGL]
+        \n - Nick's FedEx portfolio is [fedExStatus] Valued at: {c}[fedExShare]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. That's a {c}[fedExStockGL]{/c} [fedExGL]
+        \n
+        \n - Nick now has {c}[savings]{/c} in his savings.{/size}":
+            jump theftReal
+        "{size=-5}Click Here to Continue{/size}":
+            jump theftReal
+
+label theftReal:
+
 
     $randJobNum = 70
-    "Random Job Number: [randJobNum]"
     # Nick may get a job at Really Big Data!
     if randJobNum >= 65 and nick10K == True:
         scene bg deskjob

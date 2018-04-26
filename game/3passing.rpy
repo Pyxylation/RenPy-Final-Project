@@ -79,12 +79,25 @@ label passing:
         $kBGL = "loss"
 
 
+    $adjustedRandJobNum = 0
+    #Really Big Data Update
+    $rdbRand = renpy.random.randint(0, 100)
+    $rbdStatus = "empty"
+    if rdbRand < 45:
+        $rbdStatus = "Theyre doing well and gaining reputation for great business analytics"
+        $randJobNum += 10
+    elif rdbRand >= 45 and rdbRand < 80:
+        $rbdStatus = "They have been doing okay, but still working on improving their business"
+    elif rdbRand >= 80:
+        $rbdStatus = "They haven't been doing that well... Hopefully they can improve in the future."
+        $randJobNum -= 5
+
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*7)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
 
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
-    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
+    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.25))
 
     #How much money is saved for a house
     $housePayment = cashFlowStatement.getValue("houseDownPay")
@@ -100,21 +113,26 @@ label passing:
 
     scene bg yearslaterbar
     menu:
-        "{b}{u}8 Years Later{/u}{/b}
+        "{size=-5}{b}{u}7 Years Later{/u}{/b}
         \n
-        - Nick is now 40 years old and earns {c}[salaryNick]{/c}
-        \nWhitney is now 39 years old and earns {c}[salaryWhit]{/c}
+        - Nick is now 40 years old and earns {c}[salaryNick]{/c}.
+        \n- Whitney is now 39 years old and earns {c}[salaryWhit]{/c}.
         \n
         \n {u}Loans{/u}
-        \nCongratulations! Nick has paid off his student loans!
+        \n- Congratulations! Nick has paid off his student loans!
         \n
         \n {u}Investments{/u}
         \n - Nick's K&B portfolio is [kBStatus] Valued at: {c}[kBShare]{/c} per share.
-        \n Total value is {c}[kB]{/c}. That is a {c}[kBStockGL]{/c} [kBGL]
+        \n Total value is {c}[kB]{/c}. That's a {c}[kBStockGL]{/c} [kBGL]
         \n - Nick's FedEx portfolio is [fedExStatus] Valued at: {c}[fedExShare]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. That is a {c}[fedExStockGL]{/c} [fedExGL]":
+        \n Total value is {c}[fedEx]{/c}. That's a {c}[fedExStockGL]{/c} [fedExGL]
+        \n
+        \n {u}Really Big Data{/u}
+        \n [rbdStatus]
+        \n
+        \n - Nick now has {c}[savings]{/c} in his savings.{/size}":
             jump funeralreal
-        "Click Here to Continue":
+        "{size=-5}Click Here to Continue{/size}":
             jump funeralreal
 
 
@@ -142,7 +160,7 @@ label funeralreal:
             $lifePoints += 20
             $momDebt = True
 
-        "Don't pay any of it, keep everything!": #FIXME Add something in place of "Screw Them!"
+        "Don't pay any of it, keep everything! Begone creditors!":
             "Good decision! Nick doesn't have to pay the debt because it's not his!"
             $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc")+20000)
             $lifePoints += 100
