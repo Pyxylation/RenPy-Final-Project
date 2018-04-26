@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("The Clintons:                     \nNo, Not the Famous Ones")
+define config.name = _("The Clintons: No, Not the Famous Ones")
 
 #Developer mode
 define config.developer = True
@@ -21,7 +21,7 @@ define config.developer = True
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
@@ -152,7 +152,7 @@ define config.save_directory = "FinanceSim-1522890176"
 ##
 ## The icon displayed on the taskbar or dock.
 ## icon size: 32X32
-define config.window_icon = "gui/window_icon.png"
+define config.window_icon = "gui/realicon.png"
 
 
 ## Build configuration #########################################################

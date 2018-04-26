@@ -75,7 +75,7 @@ label expanding:
     $k401 = balanceSheet.getValue("401K")
     "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
-    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
+    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.025))
 
     #How much money is saved for a house
     $housePayment = cashFlowStatement.getValue("houseDownPay")
@@ -92,8 +92,7 @@ label expanding:
     scene bg boyorgirl
     with dissolve
 
-    "BOOM! Its time have a kid! 99\%\ effective didnt matter here"
-    "Suprise baby"
+    "BOOM! Life finds a way! Whitney is expecting!"
 
     $randBaby = renpy.random.randint(0, 1)
 
@@ -101,33 +100,33 @@ label expanding:
         scene bg boy
         $randBoy = renpy.random.choice(["Noah", "Liam", "Jacob", "William", "Ethan", "James", "Michael", "Beenjamin'", "Elijah", "Daniel", "Aiden", "Logan", "Matthew", "Lucas", "Jackson", "David", "Oliver"])
         "           Its a boy!!!!"
-        "Nick and Whittney named him [randBoy]! "
+        "Nick and Whitney named him [randBoy]! "
     else:
         scene bg girl
         $randGirl = renpy.random.choice(["Emma", "Olivia", "Sophia", "Ava", "Isabella", "Mia", "Abigail", "Emily", "Charlotte", "Harper", "Madison", "Amelia", "Elizabeth", "Sofia", "Evelyn", "Chloe", "Ella"])
         "           It's a girl!!!"
-        "Nick and Whittney named her [randGirl]! "
+        "Nick and Whitney named her [randGirl]! "
 
     $cashFlowStatement.addItem("outflows", "child", "Cost of a Child", 13000)
 
-    scene bg neighborhood
+    scene bg citysuburb
     with dissolve
 
     "Since Nick and Whitney now have a baby, they want to buy their very own house!"
 
     menu:
-        "Where should they live? Most house purchases require 20\%\ downpayment."
-        "City: $400000 15 year loan with a rate of 7.5\%\ Average $2966 monthly mortgage payment":
-            #scene bg cityHouse
-            "Congradualtions! Nick and Whitney are city-slickers now!"
+        "Where should they live? Most house purchases require 20\%\ down payment."
+        "City: $400,000 - 15 year loan with a rate of 7.5\%\ Average $2,966 monthly mortgage payment":
+            scene bg city
+            "Congratulations! Nick and Whitney are city-slickers now!"
             $balanceSheet.removeItem("houseDownPay")
             $cashFlowStatement.removeItem("houseDownPay")
             $cashFlowStatement.addItem("outflows", "mortgagePayment", "House Mortgage", 35592)
             $balanceSheet.addItem("misLoans", "house", "House", 320000)
             $lifePoints += 120
-        "Suburb: $200000, 15 year loan with a rate of 7.5\%\ Average $1483 monthly mortgage payment": #Need escape character for a %, so \%\
-            #scene bg subHouse
-            "Congradulations! Nick and Whitney own a house in the subburb now!"
+        "Suburb: $200,000 - 15 year loan with a rate of 7.5\%\ Average $1,483 monthly mortgage payment": #Need escape character for a %, so \%\
+            scene bg suburb
+            "Congratulations! Nick and Whitney own a house in the suburbs now!"
             $balanceSheet.removeItem("houseDownPay")
             $cashFlowStatement.removeItem("houseDownPay")
             $cashFlowStatement.addItem("outflows", "mortgagePayment", "House Mortgage", 2966)

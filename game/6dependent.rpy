@@ -81,7 +81,7 @@ label dependent:
     $k401 = balanceSheet.getValue("401K")
     "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
-    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
+    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.025))
 
 
     if nickIsCrazy == True:
@@ -97,32 +97,31 @@ label dependent:
 
 
 
-    show bg brokenbone
+    scene bg brokenleg
 
-    "Oh no! Nicks dad broke his leg!"
-    "After going to the hospital, he realizes that he is unable to take care of himself."
+    "Oh no! Nick's dad broke his leg and realizes that he is unable to take care of himself alone."
     $crazyBrokenLeg = False
     menu:
-        "How should nick help his dad?"
-        "Pay monthly rent at a nursing home for dad, $5500":
+        "How should Nick help his dad?"
+        "Pay monthly rent at a nursing home for dad, $5,500":
             $lifePoints += 20
             $cashFlowStatement.addItem("outflows", "nursing", "Nursing Home", 5500)
-            "Nick's dad is greatful for his help in paying for a nursing home!
+            "Nick's dad is grateful for his help in paying for a nursing home!
             \nNick will make sure to visit often!"
 
-        "Hire in-home nurse so Nick's dad can still live at his home, $4500":
+        "Hire in-home nurse so Nick's dad can still live at his home, $4,500":
             $lifePoints += 50
             $cashFlowStatement.addItem("outflows", "nurse", "In-Home Nurse", 4500)
             "Nick's dad is happy that he can continue to live at home and get the help he needs."
 
-        "Whitney quits her job and takes care of Nick's dad at their house, $1000":
+        "Whitney quits her job and takes care of Nick's dad at their house, $1,000":
             $lifePoints += 150
             $cashFlowStatement.addItem("outflows", "medication", "Nick's Dad Medication", 5500)
             $cashFlowStatement.changeItemValue("salaryWhit", 0)
-            "Nick's dad is extatic that he can live and spend time with Nick and Whitney again!"
+            "Nick's dad is ecstatic that he can live and spend time with Nick and Whitney again!"
 
-        "NICK DOESNT NEED THE COMPROMISED MEDICAL SYSTEM TO MAKE HIS DAD WORSE
-        \nNICKS DAD MOVES IN WITH HIM AND NICK FIXES THE BROKEN BONE HIMSELF!" if nickIsCrazy:
+        "NICK DOESNT NEED THE COMPROMISED MEDICAL SYSTEM TO MAKE HIS DAD WORSE!
+        \nNICK'S DAD MOVES IN WITH HIM AND NICK FIXES THE BROKEN BONE HIMSELF!" if nickIsCrazy:
             $lifePoints += 120
 
     #likelyhood that he loses money from identity being stolen
@@ -130,7 +129,7 @@ label dependent:
     if nickIsCrazy == False and identityStolen == True and stolenRand <= 75:
         $stolenMultiplied = stolenRand * 1000
         $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc")-stolenMultiplied)
-        "Oh no!!! You should have paid for Life Lock! You lost {c}[stolenMultiplied]{/c}"
+        "Oh no!!! You should have paid for Life Lock! You lost {c}[stolenMultiplied]{/c}."
     else:
         jump retirement
 

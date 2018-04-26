@@ -86,7 +86,7 @@ label theft:
     $k401 = balanceSheet.getValue("401K")
     "Current 401K Savings {c}[k401]{/c}."
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
-    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
+    $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.025))
 
     $nickCashFlow = (cashFlowStatement.getValue("cashflows"))*7
     $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
@@ -99,17 +99,17 @@ label theft:
     # Nick may get a job at Really Big Data!
     if randJobNum >= 65 and nick10K == True:
         scene bg deskjob
-        b "Hi Nick! Thanks to your help and investment in Really Big Data we have been doing really well."
-        b "Our CMO just left. I was wondering if you wanted the job."
+        w "Hi Nick! Thanks to your help and investment in Really Big Data, we have been doing really well."
+        w "Our CMO just left. I was wondering if you wanted the job."
         n "I'd love it! Thank you very much!"
-        "Nicks investment finally paid off. His new salary is $110000"
+        "Nicks investment finally paid off. His new salary is $110,000"
         $cashFlowStatement.changeItemValue("salaryNick", 110000)
 
     #Nick investing and that paying off
     elif randJobNum >= 65 and nick1K == True:
-        scene bg deskbob #This is the normal desk with bobs name on it, not nicks!!!
-        b "We are happy to report that Really Big Data is doing well!"
-        b "You can finallly get a return on your investment!"
+        scene bg deskwill #This is the normal desk with wills name on it, not nicks!!!
+        w "We are happy to report that Really Big Data is doing well!"
+        w "You can finally get a return on your investment!"
         $roiRBD = renpy.random.randint(10, 15)*1000
         $balanceSheet.incItemValue("savingsAcc", roiRBD)
         "Really Big Data gives you {c}[roiRBD]{/c}"
@@ -117,22 +117,22 @@ label theft:
 
     #Nick not investing and that paying off, but you dont get anything
     elif randJobNum >=65 and nick10K == False and nick1K == False:
-        scene bg deskbob #This is the normal desk with bobs name on it, not nicks!!!
-        "You didnt invest, but the company is rockin"
+        scene bg deskwill #This is the normal desk with wills name on it, not nicks!!!
+        "You didn't invest, but the company is rockin'"
 
     #The company failing regardless
     else:
-        "Really Big Data has just gone bankrupt"
-        "Nicks investment had potential, but it wasnt enough to keep them afloat.
-            \n Seems that the new data anytics was not needed in the market. "
+        "Really Big Data has just gone bankrupt!"
+        "Nick's investment had potential, but it wasn't enough to keep them afloat.
+            \n Seems that the new data analytics was not needed in the market. "
         $balanceSheet.removeItem("RBD")
 
     # scene bg identityTheft
 
     scene bg identitytheft
 
-    "Freaking (Insert some company name) has had yet ANOTHER data breach! Whitney told nick not
-        to trust them with personal data."
+    "Equifax has had yet ANOTHER data breach! Whitney told Nick not
+        to trust them with their personal data."
     #gotta define these before, or else other menu/if statements that use them will crap out because they doesnt exist
     $nickIsCrazy = False
     $identityStolen = False
@@ -140,7 +140,7 @@ label theft:
         "What should Nick do about this?"
 
         "Purchase LifeLock for $15 a month":
-            "Excellent choice! Nick feel safe now! He should be fine."
+            "Excellent choice! Nick feels safe now! He should be fine."
             $lifePoints += 80
             $cashFlowStatement.addItem("outflows", "lifeLock", "LifeLock", 180)
 
@@ -149,7 +149,7 @@ label theft:
             $lifePoints += 20
             $identityStolen = True
 
-        "TAKE OUT ALL SAVINGS FROM THE BANK AND STORE UNDER MATRESS!!!!!":
+        "TAKE OUT ALL SAVINGS FROM THE BANK AND STORE IT UNDER HIS MATRESS!!!!!":
             $balanceSheet.addItem("assets", "matressBank", "Money Under Matress", 0)
             $lifePoints += 100
             $nickIsCrazy = True

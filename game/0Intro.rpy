@@ -35,9 +35,9 @@ init python:
 
     #use: "Your savings is {c}[savingsTotal]{/c}" results in: Your Savings is $7,500
     def c_tag(tag, argument, contents):
-        
+
         result = []
-        
+
         for kind, text in contents:
 
             if kind == renpy.TEXT_TEXT:
@@ -62,11 +62,11 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
     # file formats need to be either .png or .jpg, dont use .gif
-    scene bg introhousereverse
+    scene bg introhousereversegrey
     "Welcome to 'The Clintons: No, Not the Famous Ones!'"
-    "This game will be a guide to helping you make financial decisions throughout your life"
-    "There are two goals of the Game:
-        \nFirst you need to collect 1 Million dollars for retirement
-        \nSecond: You need to amass Life Points (LP). Which show how much life experince you got"
+    "This game will be a guide to helping Nick Clinton make financial decisions throughout his life."
+    "There are two goals of the game:
+        \nFirst: You need to help Nick collect 1 Million dollars for retirement
+        \nSecond: Nick needs to amass Life Points (LP), which represents the quality of Nick's life experiences"
 
 jump Investment

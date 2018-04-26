@@ -74,7 +74,7 @@ label retirement:
         $k401 = balanceSheet.getValue("401K")
         "Current 401K Savings {c}[k401]{/c}."
         #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
-        $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
+        $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.025))
 
 
 
@@ -84,45 +84,43 @@ label retirement:
         "Nick now has {c}[savings]{/c} in his savings."
 
     else:
-        "Nick is crazy. He doesnt trust the system. So, he cant get paid."
+        "Nick is crazy. He doesn't trust the system and quits his job. So, he can't get paid."
 
 
-    scene bg retirement
+    #scene bg retirement
 
     if nickIsCrazy == True:
         $money = balanceSheet.getValue("matressBank") + balanceSheet.getValue("fedExStock")
-        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("growthMutualFund") + balanceSheet.getValue("401K"))
+        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("401K"))
 
     else:
         $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
-        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("growthMutualFund") + balanceSheet.getValue("401K"))
+        $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("401K"))
 
-    "Congradualtions!!! Its retirement time!!!"
-    "Lets see how money and life points you ended up with!
+    "Congratulations!!! It's retirement time!!!"
+    "Let's see how money and life points Nick ended up with!
     \n Life Points [lifePoints] & Money {c}[money]{/c}"
 
     if money >= 1000000:
 
         if nickIsCrazy == True:
-            menu:
-                "Nick made it to retirement!
-                \nWhere would you like Nick to live?"
-                "Beach":
-                    "What up Beaches"
-                "THE MOUNTIANS!!! THE GOVERNMENT IS OUT TO GET NICK! CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR HIM!!!" if nickIsCrazy:
-                    "Shoot!"
+            "NICK RETIRES TO THE MOUNTAINS!!! THE GOVERNMENT IS OUT TO GET NICK! CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR HIM!!!"
+            scene bg credits
         else:
-            if lifePoints <=180:
+            if lifePoints <=120:
+                scene bg beach
                 "Nick made it to retirement! But, he got depression in the process..."
             else:
-                "Congrats! No Depression"
+                scene bg beach
+                "Congrats! Beach Retirement!"
 
     elif nickIsCrazy == True and money < 1000000:
+        scene bg gameover
         "Nick went crazy and didn't make it to retirement... "
 
     else:
-        "Sorry... You didn't make it to 1 million...
-        \n You played ya'self kid..."
+        scene bg gameover
+        "Sorry... You didn't make it to 1 million..."
 
     scene bg credits
     "Thanks!"

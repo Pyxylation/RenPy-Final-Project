@@ -4,7 +4,7 @@
 # name of the character.
 
 #Nicks friend who is asking himm to invest in the company
-define b = Character("Bob")
+define w = Character("Will")
 
 # The game starts here.
 label Investment:
@@ -13,8 +13,8 @@ label Investment:
     with fade
 
 
-    b "Hi Nick! I'm starting a new data analystics company called 'Really Big Data.' We have this new take on data
-        analysis and I was wondering if you wanted to be a investor?"
+    w "Hi Nick! I'm starting a new data analytics company called 'Really Big Data.' We have this new take on data
+        analysis and I was wondering if you wanted to be an investor."
     n "That sounds interesting! Let me think about it..."
 
     #random number to determine if nick gets the job or not
@@ -23,13 +23,13 @@ label Investment:
     $nick1K = False
 
     menu:
-        "Nick doesnt directly have $10,000 to give.
-            \n How will he invest in Really Big Data?"
+        "Nick doesn't have $10,000 in his savings to give.
+            \nHow will he invest in Really Big Data?"
 
         "Invest: $10,000
-            \n Nick gives 1000 from savings. While Whitney sells her car and purchases a different car freeing up the needed 9,000.
-                    Nick also helps the company. Remember risk can equal reward!":
-                n "I would love it! Here is $10,000. Lets talk marketing stragety."
+            \n Nick gives $1,000 from savings. While Whitney sells her car and purchases a different car freeing up the needed $9,000.
+                    Nick also helps the company with marketing. Remember, risk can equal reward!":
+                n "I would love to! Here is $10,000. Let's talk marketing strategy."
 
                 scene bg handshake
 
@@ -46,8 +46,8 @@ label Investment:
                 #becase nick helped with the company, so there is a greater chance for this success
                 $randJobNum += 15
 
-                "Whittney sold her car for $26,474, used $9000 for the investent,
-                    \nused $5000 to pay off her loan, and purchased a new car worth $12646."
+                "Whitney sold her car for $26,474, used $9,000 for the investment,
+                    \nused $5,000 to pay off her loan, and purchased a new car worth $12,646."
 
 
         "Invest $1,000 all from savings":
@@ -60,9 +60,9 @@ label Investment:
             $nick1K = True
             $lifePoints += 30
 
-        "Dont invest":
+        "Don't invest":
             scene bg rejection
-            "Sorry Bob. I really dont have the cash flow to invest.
+            "Sorry Will. I really don't have the cash flow to invest.
                 \n But, thanks for the offer."
 
 

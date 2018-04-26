@@ -10,7 +10,7 @@ label passing:
 
     # 7 years
     scene bg 7yearslater
-
+    " "
     #salary increase
     $cashFlowStatement.changeItemValue("salaryNick", salaryIncrease(7, "salaryNick"))
     $cashFlowStatement.changeItemValue("salaryWhit", salaryIncrease(7, "salaryWhit"))
@@ -18,8 +18,7 @@ label passing:
     #display salary
     $salaryNick = cashFlowStatement.getValue('salaryNick')
     $salaryWhit = cashFlowStatement.getValue('salaryWhit')
-    "Nick is now 40 years old and earns {c}[salaryNick]{/c}
-    \nWhitney is now 39 years old and earns {c}[salaryWhit]{/c}"
+
 
     #new 401K calcualtion
     $cashFlowStatement.changeItemValue("401K", int(eval('(cashFlowStatement.getValue("salaryNick")*.03)*.5+cashFlowStatement.getValue("salaryNick")*.03')))
@@ -34,54 +33,56 @@ label passing:
     $loan = abs(balanceSheet.getValue("nicholasLoan"))
     $balanceSheet.changeItemValue("nicholasLoan", 0)
     $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc") + loan)
-    "Nick has paid off his student loans!!!"
 
     #change stuff for 3% inflation, only food and fun!
     #Entertianment
-    $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 7, .03)))
+    $cashFlowStatement.changeItemValue("entertainment", int(compInt((cashFlowStatement.getValue("entertainment")), 7, .025)))
     #food
     $cashFlowStatement.changeItemValue("food", int(compInt((cashFlowStatement.getValue("food")), 7, .01)))
 
     #Stock Stuff, random between -2 and 8% increase/decrease
     #FedEx
     $oFedEx = balanceSheet.getValue("fedExStock") #original fedEx portfolio vlaue
-    $stockProfit = int(stockMarket(7, "fedExStock")) #profit made during 8 years
+    $fedExStockGL = int(stockMarket(8, "fedExStock")) #profit made during 8 years
     $fedEx = int(balanceSheet.getValue("fedExStock")) #current fedEx protfolio value
-    $share = int(fedEx/100) #price of stock per share
+    $fedExShare = int(fedEx/100) #price of stock per share
 
     #fedEx stock if then statement
+    #$fedExGL = "nOTHING"
+    $fedExStatus = "nothing"
     if fedEx > oFedEx:
-        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
-    elif fedEx == oFedEx:
-        "FedEx portfolio valued at [fedEx] at {c}[share]{/c} per share"
+        $fedExStatus = "looking excellent!"
+        $fedExGL = "gain." #if there is loss or gain
+    elif kB == oKB:
+        $fedExStatus = "doing alright."
+        $fedExBGL = "the same."
     else:
-        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[fedEx]{/c}. Thats {c}[stockProfit]{/c} loss"
+        $fedExStatus = "looking bad."
+        $fedExGL = "loss"
 
     #K&B
     $oKB = balanceSheet.getValue("k&bStock") #original fedEx portfolio vlaue
-    $stockProfit = int(stockMarket(7, "k&bStock")) #profit made during 8 years
+    $kBStockGL = int(stockMarket(8, "k&bStock")) #profit made during 8 years
     $kB = int(balanceSheet.getValue("k&bStock")) #current fedEx protfolio value
-    $share = int(kB/100) #price of stock per share
-
+    $kBShare = int(kB/100) #price of stock per share
+    $kBGL = "nOTHING"
+    $kBStatus = "nothing"
     #fedEx stock if then statement
     if kB > oKB:
-        "Nicks FedEx portfolio is looking good! Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} in earnings!"
+        $kBStatus = "looking great!"
+        $kBGL = "gain." #if there is loss or gain
     elif kB == oKB:
-        "FedEx portfolio valued at [kB] at {c}[share]{/c} per share"
+        $kBStatus = "doing okay."
+        $kBGL = "the same."
     else:
-        "Nicks FedEx portfolio is down. Valued at: {c}[share]{/c} per share.
-        \n Total value is {c}[kB]{/c}. Thats {c}[stockProfit]{/c} loss"
-
-        $adjustedRandJobNum = 0
+        $kBStatus = "looking problematic."
+        $kBGL = "loss"
 
 
     #Addings 401K deferals and totaling,, DONT FORGET THE EMPLOYERS CONTRIBUTION $.50 on the dollar, up to 3% then adding to loadBalanceSheet
     $balanceSheet.changeItemValue("401K", (cashFlowStatement.getValue("401K")*7)+ (cashFlowStatement.getValue("401K")*4) + balanceSheet.getValue("401K"))
     $k401 = balanceSheet.getValue("401K")
-    "Current 401K Savings {c}[k401]{/c}."
+
     #Increases 401K deferal amount in cashFlowStatement. 3% of total salary
     $cashFlowStatement.changeItemValue('401K', int(cashFlowStatement.getValue("salaryNick")*.03))
 
@@ -94,35 +95,55 @@ label passing:
     $balanceSheet.incItemValue("savingsAcc", nickCashFlow)
 
     $savings = balanceSheet.getValue("savingsAcc")
-    "Nick now has {c}[savings]{/c} in his savings."
 
 
 
+    scene bg yearslaterbar
+    menu:
+        "{b}{u}8 Years Later{/u}{/b}
+        \n
+        - Nick is now 40 years old and earns {c}[salaryNick]{/c}
+        \nWhitney is now 39 years old and earns {c}[salaryWhit]{/c}
+        \n
+        \n {u}Loans{/u}
+        \nCongratulations! Nick has paid off his student loans!
+        \n
+        \n {u}Investments{/u}
+        \n - Nick's K&B portfolio is [kBStatus] Valued at: {c}[kBShare]{/c} per share.
+        \n Total value is {c}[kB]{/c}. That is a {c}[kBStockGL]{/c} [kBGL]
+        \n - Nick's FedEx portfolio is [fedExStatus] Valued at: {c}[fedExShare]{/c} per share.
+        \n Total value is {c}[fedEx]{/c}. That is a {c}[fedExStockGL]{/c} [fedExGL]":
+            jump funeralreal
+        "Click Here to Continue":
+            jump funeralreal
+
+
+label funeralreal:
     scene bg funeral
     with dissolve
     $momDebt = False
-    "Oh no! Nick's mom fell ill and died!"
-    "Because Nick was an only child, she passed her estate down to him."
-    "It wasnt much, only $20000. Because funerals are expensive."
+    "Oh no! Nick's mom fell ill and kicked the bucket!"
+    "Because Nick's mom was divorced and Nick was an only child, she passed her estate down to him.
+    \nIt wasn't much, only $20,000, because funerals are expensive."
 
     menu:
-        "What does nick do now? His mom had 15000 in debt to pay."
+        "What does Nick do now? His mom had $15,000 in debt to pay and the creditors are out in force."
 
-        "Pay the debt, keep $5000":
-            "You screwed up, Nick never had to pay the debt. It's not his"
+        "Pay the debt, keep $5,000":
+            "Nick messed up! He never had to pay the debt because it's not legally his responsibility to pay."
             $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc")+5000)
             $lifePoints += 10
 
-        "Contact the creditors and tell them you will pay half. You keep $7500.":
-            "Sadly, when you even give $1 to the creditors the debt is yours.
+        "Contact the creditors and tell them Nick will pay half. He keeps $7,500.":
+            "Sadly, when you even give $1 to the creditors, you assume the debt.
             \nCreditors are slimy and they will be back for more later..."
-            "The benefit now is that Nick can use this money to invest and make more before its taken"
+            "The benefit now is that Nick can use this money to invest and make more before its taken."
             $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc") + 12500)
             $lifePoints += 20
             $momDebt = True
 
-        "Dont pay any of it, keep everything. Screw them!":
-            "Good decision! Nick doesnt have to pay the debt because its not his!"
+        "Don't pay any of it, keep everything!": #FIXME Add something in place of "Screw Them!"
+            "Good decision! Nick doesn't have to pay the debt because it's not his!"
             $balanceSheet.changeItemValue("savingsAcc", balanceSheet.getValue("savingsAcc")+20000)
             $lifePoints += 100
 
