@@ -110,7 +110,6 @@ label retirementReal:
     if nickIsCrazy == True:
         $money = balanceSheet.getValue("matressBank") + balanceSheet.getValue("fedExStock")
         $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("401K"))
-
     else:
         $money = (balanceSheet.getValue("checkingAcc") + balanceSheet.getValue("savingsAcc") + balanceSheet.getValue("fedExStock"))
         $money += (balanceSheet.getValue("k&bStock") + balanceSheet.getValue("401K"))
@@ -131,28 +130,42 @@ label restofretirement:
 
         if nickIsCrazy == True:
             scene bg mountians
+            $credits = "mountians"
             "NICK RETIRES TO THE MOUNTAINS!!! THE GOVERNMENT IS OUT TO GET NICK! CIVILIZATION AND TECHNOLOGY HAS NOTHING FOR HIM!!!"
+
         else:
             if lifePoints <=120:
                 scene bg beach
+                $credits = "beach"
                 "Nick made it to retirement! But, he got depression in the process..."
+
             else:
                 scene bg beach
+                $credits = "beach"
                 "Congrats! Beach Retirement!"
+
 
     elif nickIsCrazy == True and money < 1000000:
         scene bg gameover
+        $credits = "fail"
         "Nick went crazy and didn't make it to retirement... "
+
 
     else:
         scene bg gameover
+        $credits = "fail"
         "Sorry... You didn't make it to 1 million..."
 
-    scene bg credits
-    "Thanks!"
 
+    if credits == "mountians":
+        scene bg mountiancredits
+        " "
+    elif credits == "beach":
+        scene bg beachcredits
+        " "
+    else:
+        scene bg failcredits
+        " "
 
-
-
-#this ends the game
+#ends game
 return

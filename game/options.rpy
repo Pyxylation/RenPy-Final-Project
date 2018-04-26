@@ -15,7 +15,7 @@
 define config.name = _("The Clintons: No, Not the Famous Ones")
 
 #Developer mode
-define config.developer = True
+define config.developer = False
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -26,7 +26,7 @@ define gui.show_name = False
 
 ## The version of the game.
 
-define config.version = "Beta 1.0"
+define config.version = "1.0"
 
 
 ## Text that is placed on the game's about screen. Place the text between the

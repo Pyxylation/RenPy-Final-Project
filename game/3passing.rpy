@@ -140,7 +140,7 @@ label funeralreal:
     scene bg funeral
     with dissolve
     $momDebt = False
-    "Oh no! Nick's mom fell ill and kicked the bucket!"
+    "Oh no! Nick's mom fell ill and passed away!"
     "Because Nick's mom was divorced and Nick was an only child, she passed her estate down to him.
     \nIt wasn't much, only $20,000, because funerals are expensive."
 

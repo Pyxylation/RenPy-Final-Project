@@ -51,6 +51,20 @@ init python:
 
     config.custom_text_tags["c"] = c_tag
 
+label splashscreen:
+    scene black
+    with Pause(0.5, hard=True)
+
+    show teamafk:
+        xalign 0.5 yalign 0.5
+    with dissolve
+    with Pause(2.0, hard=True)
+
+    scene black
+    with dissolve
+    with Pause(1.0, hard=True)
+return
+
 # The game starts here.
 label start:
     call loadCashflow
@@ -66,7 +80,7 @@ label start:
     "Welcome to 'The Clintons: No, Not the Famous Ones!'"
     "This game will be a guide to helping Nick Clinton make financial decisions throughout his life."
     "There are two goals of the game:
-        \nFirst: You need to help Nick collect 1 Million dollars for retirement
+        \nFirst: You need to help Nick collect one Million dollars for retirement
         \nSecond: Nick needs to amass Life Points (LP), which represents the quality of Nick's life experiences"
 
 jump Investment
